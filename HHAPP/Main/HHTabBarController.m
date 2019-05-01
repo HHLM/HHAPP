@@ -7,8 +7,11 @@
 //
 
 #import "HHTabBarController.h"
-
-@interface HHTabBarController ()
+#import "HHAdminViewController.h"
+#import "HHNewsViewController.h"
+#import "HHVideoViewController.h"
+#import "HHNavigationController.h"
+@interface HHTabBarController ()<UITabBarDelegate,UITabBarControllerDelegate>
 
 @end
 
@@ -16,17 +19,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSArray *infoArray = @[
+  @[@"新闻",@"视频",@"推荐",@"我的"],
+  @[@"page",@"video",@"like",@"home"],
+  @[@"page_selected",@"video_selected",@"like_selected",@"home_selected"]];
+    NSArray *controllers = @[@"HHNewsViewController",
+                                 @"HHVideoViewController",
+                                 @"HHLikeViewController",
+                                 @"HHAdminViewController"];
+    NSMutableArray *viewControllers = [NSMutableArray array];
+    for (int i = 0; i < controllers.count; i ++) {
+        [viewControllers addObject: [self addChildName:controllers[i]
+                                                 title:infoArray[0][i]
+                                                 image:infoArray[1][i]
+                                            hightImage:infoArray[2][i]]];
+    }
+    self.viewControllers = viewControllers;
+    //设置字体颜色 字体大小
+    NSDictionary *info = @{NSForegroundColorAttributeName : [UIColor lightGrayColor],
+                           NSFontAttributeName:[UIFont systemFontOfSize:10]};
+    NSDictionary *selectInfo = @{NSForegroundColorAttributeName : [UIColor magentaColor],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:10]};
+    [[UITabBarItem appearance] setTitleTextAttributes:selectInfo
+                                             forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:info
+                                             forState:UIControlStateNormal];
+    
+    self.tabBar.translucent = NO;
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (HHNavigationController *)addChildName:(NSString *)childName
+                                   title:(NSString *)title
+                                   image:(NSString *)image
+                              hightImage:(NSString *)hightImage {
+    BaseViewController *vc = [NSClassFromString(childName) new];
+    vc.tabBarItem.title = title;
+    //使用图片原来的颜色
+    vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:hightImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.imageInsets = UIEdgeInsetsMake(-1.5, 0, 1.5, 0);
+    [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -5)];
+    return [[HHNavigationController alloc] initWithRootViewController:vc];
+    
 }
-*/
-
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    
+}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    return YES;
+}
 @end

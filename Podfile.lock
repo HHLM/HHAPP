@@ -1,0 +1,16 @@
+PODS:
+  - HHLKit (0.0.1)
+
+DEPENDENCIES:
+  - HHLKit (from `../HHLKit/`)
+
+EXTERNAL SOURCES:
+  HHLKit:
+    :path: "../HHLKit/"
+
+SPEC CHECKSUMS:
+  HHLKit: 7e01927027b42f5569fd85fec15bef086f753feb
+
+PODFILE CHECKSUM: 038f64212e7b7bcb9d830933eebce05b5ef43dc8
+
+COCOAPODS: 1.6.1
