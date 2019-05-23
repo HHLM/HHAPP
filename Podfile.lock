@@ -1,8 +1,14 @@
 PODS:
   - HHLKit (0.0.1)
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - HHLKit (from `../HHLKit/`)
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
 
 EXTERNAL SOURCES:
   HHLKit:
@@ -10,7 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   HHLKit: 7e01927027b42f5569fd85fec15bef086f753feb
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 038f64212e7b7bcb9d830933eebce05b5ef43dc8
+PODFILE CHECKSUM: eb941dfc7d1add1f218f81bf633fba1c5461c632
 
 COCOAPODS: 1.6.1

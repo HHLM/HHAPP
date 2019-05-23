@@ -7,7 +7,7 @@
 //
 
 #import "HHLikeViewController.h"
-
+#import "HHLikeHeaderView.h"
 @interface HHLikeViewController ()
 
 @end
@@ -17,16 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐";
+    HHLikeHeaderView *header = [[HHLikeHeaderView alloc] initWithFrame:CGRectMake(10, 100, 300, 400)];
+    [self.view addSubview:header];
+    [header addFirstView];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
 }
-*/
 
 @end

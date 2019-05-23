@@ -8,7 +8,7 @@
 
 #import "HHVideoViewController.h"
 
-@interface HHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface HHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
@@ -25,6 +25,11 @@
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+        CGFloat width = self.view.frame.size.width;
+        layout.minimumLineSpacing = 10;
+        layout.minimumInteritemSpacing = 5;
+        layout.itemSize = CGSizeMake(width/2 -15, 200);
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
@@ -34,8 +39,16 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 200;
 }
-
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    CGFloat width = self.view.frame.size.width;
+//    if (indexPath.item%2 == 0) {
+//        return CGSizeMake(width/2-5, 100);
+//    }if (indexPath.item%2 == 1) {
+//        return CGSizeMake(width/2-5, 250);
+//    }
+//    return CGSizeMake(width/2-5, 150);
+//    return CGSizeMake(width/2-5, 200 + random()%200);
+//}
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];

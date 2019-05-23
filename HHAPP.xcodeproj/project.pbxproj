@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */; };
 		94ACF67722793F92002EE971 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF67622793F92002EE971 /* AppDelegate.m */; };
 		94ACF67D22793F92002EE971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ACF67B22793F92002EE971 /* Main.storyboard */; };
 		94ACF67F22793F93002EE971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ACF67E22793F93002EE971 /* Assets.xcassets */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		152D113AD384537D60A0D533 /* Pods-HHAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHAPP.debug.xcconfig"; path = "Target Support Files/Pods-HHAPP/Pods-HHAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		749B655AB220B44DC206B9F2 /* Pods-HHAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHAPP.release.xcconfig"; path = "Target Support Files/Pods-HHAPP/Pods-HHAPP.release.xcconfig"; sourceTree = "<group>"; };
+		9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeHeaderView.h; sourceTree = "<group>"; };
+		9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeHeaderView.m; sourceTree = "<group>"; };
 		94ACF67222793F92002EE971 /* HHAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ACF67522793F92002EE971 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94ACF67622793F92002EE971 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 		94ACF6A922794998002EE971 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */,
+				9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				94ACF6982279469D002EE971 /* BaseViewController.m in Sources */,
 				94ACF6BB22794A16002EE971 /* HHAdminViewController.m in Sources */,
 				94ACF68522793F93002EE971 /* main.m in Sources */,
+				9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */,
 				94ACF69B227946AE002EE971 /* BaseModel.m in Sources */,
 				94ACF67722793F92002EE971 /* AppDelegate.m in Sources */,
 				94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */,
