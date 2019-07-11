@@ -39,16 +39,16 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 200;
 }
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    CGFloat width = self.view.frame.size.width;
-//    if (indexPath.item%2 == 0) {
-//        return CGSizeMake(width/2-5, 100);
-//    }if (indexPath.item%2 == 1) {
-//        return CGSizeMake(width/2-5, 250);
-//    }
-//    return CGSizeMake(width/2-5, 150);
-//    return CGSizeMake(width/2-5, 200 + random()%200);
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat width = self.view.frame.size.width;
+    if (indexPath.item%3 == 0) {
+        CGFloat height = 40;
+        height += indexPath.item / 3 * 20;
+        return CGSizeMake(width-20, height);
+    }
+    return CGSizeMake(width/2-20, 150);
+    return CGSizeMake(width/2-5, 200 + random()%200);
+}
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];
