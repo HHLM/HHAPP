@@ -10,5 +10,5 @@
 #define PrefixHeader_pch
 #import <Masonry/Masonry.h>
 #define HHLM @"sssss"
-
+#import "TRBadgeButton.h"
 #endif /* PrefixHeader_pch */
