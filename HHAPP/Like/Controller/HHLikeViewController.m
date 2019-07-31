@@ -8,8 +8,10 @@
 
 #import "HHLikeViewController.h"
 #import "HHLikeHeaderView.h"
+#import "BadgeButton.h"
 @interface HHLikeViewController ()
 
+@property (nonatomic, strong) BadgeButton* icon;
 @end
 
 @implementation HHLikeViewController
@@ -18,21 +20,26 @@
     [super viewDidLoad];
     self.title = @"推荐";
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:CGRectMake(0, 0, 40, 40)];
-    btn.backgroundColor = [UIColor greenColor];
     
-    TRBadgeButton* icon = [[TRBadgeButton alloc] initWithCustomUIButton:btn];
-    icon.type = TRBadgeButtonOfShowNumber;
-    icon.badgeOriginX = 0;
-    icon.badgeOriginY = 0;
-    icon.badgeValue = @"88";
-    self.navigationItem.rightBarButtonItem  = icon;
+    BadgeButton* icon = [[BadgeButton alloc] initWithBadgeButtonType:BadgeButtonOfShowNumber];
+    [icon setFrame:CGRectMake(0, 0, 40, 40)];
+    icon.backgroundColor = [UIColor greenColor];
+    icon.badgeValue = @"0";
+    self.icon =icon;
+    
     HHLikeHeaderView *header = [[HHLikeHeaderView alloc] initWithFrame:CGRectMake(10, 100, 300, 400)];
     [self.view addSubview:header];
+    header.backgroundColor = [UIColor cyanColor];
+    [header addSubview:icon];
     [header addFirstView];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+   
+    if ([self.icon.badgeValue integerValue] == 0) {
+         self.icon.badgeValue = @"2";
+    }else {
+         self.icon.badgeValue = @"0";
+    }
     
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */; };
+		94595F3622F038210004C8BA /* BadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94595F3522F038200004C8BA /* BadgeButton.m */; };
 		94ACF67722793F92002EE971 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF67622793F92002EE971 /* AppDelegate.m */; };
 		94ACF67D22793F92002EE971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94ACF67B22793F92002EE971 /* Main.storyboard */; };
 		94ACF67F22793F93002EE971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94ACF67E22793F93002EE971 /* Assets.xcassets */; };
@@ -33,6 +34,8 @@
 		749B655AB220B44DC206B9F2 /* Pods-HHAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHAPP.release.xcconfig"; path = "Target Support Files/Pods-HHAPP/Pods-HHAPP.release.xcconfig"; sourceTree = "<group>"; };
 		9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeHeaderView.h; sourceTree = "<group>"; };
 		9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeHeaderView.m; sourceTree = "<group>"; };
+		94595F3422F038200004C8BA /* BadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeButton.h; sourceTree = "<group>"; };
+		94595F3522F038200004C8BA /* BadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeButton.m; sourceTree = "<group>"; };
 		94ACF67222793F92002EE971 /* HHAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94ACF67522793F92002EE971 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94ACF67622793F92002EE971 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 		94ACF6A6227947BD002EE971 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				94595F3422F038200004C8BA /* BadgeButton.h */,
+				94595F3522F038200004C8BA /* BadgeButton.m */,
 				94F4824E22E5A512008A7C05 /* TRBadgeButton.h */,
 				94F4824F22E5A513008A7C05 /* TRBadgeButton.m */,
 				94F4825122E5BA70008A7C05 /* UIView+HHExt.h */,
@@ -453,6 +458,7 @@
 				94F4825022E5A513008A7C05 /* TRBadgeButton.m in Sources */,
 				94ACF68522793F93002EE971 /* main.m in Sources */,
 				9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */,
+				94595F3622F038210004C8BA /* BadgeButton.m in Sources */,
 				94ACF69B227946AE002EE971 /* BaseModel.m in Sources */,
 				94ACF67722793F92002EE971 /* AppDelegate.m in Sources */,
 				94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */,
