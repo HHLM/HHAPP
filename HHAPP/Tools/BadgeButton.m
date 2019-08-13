@@ -42,6 +42,10 @@
             make.width.height.mas_equalTo(20);
         }];
         self.badgeLabel.layer.cornerRadius = 10;
+        self.badgeLabel.layer.borderWidth = 5;
+        self.badgeLabel.layer.borderColor = [UIColor yellowColor].CGColor;
+        self.badgeLabel.layer.backgroundColor = [UIColor redColor].CGColor;
+        
     }
     self.badgeLabel.layer.masksToBounds = YES;
 }
