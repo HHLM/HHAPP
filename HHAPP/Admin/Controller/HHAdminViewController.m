@@ -8,6 +8,7 @@
 
 #import "HHAdminViewController.h"
 #import "HHAdminViewModel.h"
+#import <RACReturnSignal.h>
 @interface HHAdminViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) HHAdminViewModel *vm;
@@ -39,9 +40,12 @@
 //    [self hh_rac];
 //    [self Rac_KVO];
 //    [self Rac_NSNotification];
-    [self Rac_Gesture];
+//    [self Rac_Gesture];
 //    [self Rac_TargetAciotn];
 //    [self Rac_Timer];
+//    [self hh_take];
+//    [self hh_retry];
+    [self hh_switchToLatest];
 }
 
 /** KVO */
@@ -94,6 +98,67 @@
     [[RACSignal interval:1 onScheduler:[RACScheduler scheduler]] subscribeNext:^(NSDate * _Nullable x) {
         NSLog(@"%@---%@",x,[NSThread currentThread]);
     }];
+}
+
+/** take */
+- (void)hh_take {
+    RACSubject *subject1 = [RACSubject subject];
+    /** 只取前面两个信号 */
+    [[subject1 take:2] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"subject1：%@",x);
+    }];
+    [subject1 sendNext:@"1"];
+    [subject1 sendNext:@"2"];
+    [subject1 sendNext:@"3"];
+    [subject1 sendNext:@"4"];
+    
+    RACSubject *subject2 = [RACSubject subject];
+    [[subject2 takeLast:3] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"subject2：%@",x);
+    }];
+
+    /** 只取completed前面两个信号
+     一定要调用 sendCompleted这样才能知道发送了几个信号
+     */
+    [subject2 sendNext:@"1"];
+    [subject2 sendNext:@"2"];
+    [subject2 sendNext:@"3"];
+    [subject2 sendNext:@"4"];
+    [subject2 sendCompleted];
+    
+    /** takeUntil:---给takeUntil传的是哪个信号，
+        那么当这个信号发送信号或sendCompleted，就不能再接受源信号的内容了。
+        当subject2开始发信号 或者subject1完成发送  就停止接收信号
+     */
+    [[subject1 takeUntil:subject2] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@", x);
+    }];
+  
+    // 发送信号
+    [subject2 sendNext:@3];
+    [subject1 sendNext:@1];
+    [subject1 sendNext:@2];
+    [subject2 sendNext:@3];
+    [subject2 sendCompleted];
+    [subject1 sendNext:@4];
+}
+
+/** skip跳过信号 */
+- (void)hh_skip {
+    // skip跳过前两个信号
+    RACSignal *signal2 = [[RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
+        [subscriber sendNext:@"信号2-0"];
+        [subscriber sendNext:@"信号2-1"];
+        [subscriber sendNext:@"信号2-2"];
+        [subscriber sendNext:@"信号2-3"];
+        [subscriber sendNext:@"信号2-4"];
+        [subscriber sendCompleted];
+        return nil;
+    }] skip:2];
+    [signal2 subscribeNext:^(id _Nullable x) {
+        NSLog(@"signal2:%@", x);
+    }];
+
 }
 
 /** 信号过滤 */
@@ -183,20 +248,7 @@
         NSLog(@"signal1:%@", x);
     }];
 
-    // skip跳过前两个信号
-    RACSignal *signal2 = [[RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@"信号2-0"];
-        [subscriber sendNext:@"信号2-1"];
-        [subscriber sendNext:@"信号2-2"];
-        [subscriber sendNext:@"信号2-3"];
-        [subscriber sendNext:@"信号2-4"];
-        [subscriber sendCompleted];
-        return nil;
-    }] skip:2];
-    [signal2 subscribeNext:^(id _Nullable x) {
-        NSLog(@"signal2:%@", x);
-    }];
-
+    
     /*
      // repeat 重复发送讯号
      RACSignal *signal3 = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -229,6 +281,84 @@
     [signal4 subscribeNext:^(id _Nullable x) {
         NSLog(@"signal3:%@", x);
     }];
+    
+}
+
+/** retry重试 */
+- (void)hh_retry {
+    
+    //1、retry重试 ：只要失败，就会重新执行创建信号中的block,直到成功.
+    __block int i = 0;
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        if (i == 10) {
+            [subscriber sendNext:[NSString stringWithFormat:@"第%d次，终于发送成功了~~",i]];
+        }else{
+            NSLog(@"接收到错误");
+            [subscriber sendError:nil];
+        }
+        i++;
+        return nil;
+    }] retry] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    } error:^(NSError *error) {
+
+    }];
+    
+    //2、'replay`重放：当一个信号被多次订阅,反复播放内容
+    RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [subscriber sendNext:@"第一次"];
+        [subscriber sendNext:@"第二次"];
+        [subscriber sendCompleted];
+        return nil;
+    }] retry];
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第一个订阅者%@",x);
+    }];
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第二个订阅者%@",x);
+    }];
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第三个订阅者%@",x);
+    }];
+    
+}
+
+/** switchToLatest */
+- (void)hh_switchToLatest {
+    // 获取信号中信号最近发出信号，订阅最近发出的信号。
+    // 注意switchToLatest：只能用于信号中的信号
+    RACSubject *subject1 = [RACSubject subject];
+    RACSubject *subject2 = [RACSubject subject];
+    RACSubject *subject3 = [RACSubject subject];
+    [subject1.switchToLatest subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    [subject1 sendNext:subject2];
+    [subject1 sendNext:subject3];
+    [subject2 sendNext:@"第i个"];
+    [subject3 sendNext:@"第m个"];
+}
+
+/** map映射
+ flattenMap
+ */
+- (void)hh_map {
+    
+    [[self.nameTF.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+        return @"HHHH";
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"map:x-->%@",x);
+    }];
+    
+    //flattenMap作用:把源信号的内容映射成一个新的信号，信号可以是任意类型。
+    [[self.nameTF.rac_textSignal flattenMap:^__kindof RACSignal * _Nullable(NSString * _Nullable value) {
+        
+        return [RACReturnSignal return: @"HHHH"];
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    
     
 }
 
