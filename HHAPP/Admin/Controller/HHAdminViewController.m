@@ -45,7 +45,8 @@
 //    [self Rac_Timer];
 //    [self hh_take];
 //    [self hh_retry];
-    [self hh_switchToLatest];
+//    [self hh_switchToLatest];
+    [self Rac_Protocol];
 }
 
 /** KVO */
@@ -67,7 +68,7 @@
 
 /** 代理方法 */
 - (void)Rac_Protocol {
-    [[self.nameTF rac_signalForSelector:@selector(textFieldDidEndEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(id x) {
+    [[self rac_signalForSelector:@selector(textFieldDidBeginEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(id x) {
         // 实现 UITextFieldDelegate: 代理方法
         NSLog(@"%@", x);
     }];

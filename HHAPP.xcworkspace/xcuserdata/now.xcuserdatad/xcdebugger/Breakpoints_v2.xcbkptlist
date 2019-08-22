@@ -58,7 +58,7 @@
                   moduleName = "HHAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Like/View/HHLikeHeaderView.m"
-                  timestampString = "587547971.015088"
+                  timestampString = "588135719.288666"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -73,7 +73,7 @@
                   moduleName = "HHAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Like/View/HHLikeHeaderView.m"
-                  timestampString = "587547971.017936"
+                  timestampString = "588135719.292996"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "46"
@@ -128,6 +128,22 @@
             startingLineNumber = "81"
             endingLineNumber = "81"
             landmarkName = "-updateBadgeFrame"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HHAPP/Admin/Controller/HHAdminViewController.m"
+            timestampString = "588135718.957346"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-Rac_Protocol"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
