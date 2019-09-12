@@ -367,7 +367,18 @@
     if (!_nameTF) {
         _nameTF = [[UITextField alloc] initWithFrame:CGRectMake(30, 100, 200, 30)];
         _nameTF.placeholder = @"输入文字";
-        _nameTF.borderStyle = UITextBorderStyleRoundedRect;
+//        _nameTF.borderStyle = UITextBorderStyleRoundedRect;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        view.backgroundColor = [UIColor redColor];
+        UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        view1.backgroundColor = [UIColor redColor];
+        _nameTF.rightView = view;
+        _nameTF.rightViewMode = UITextFieldViewModeAlways;
+        _nameTF.leftView = view1;
+        _nameTF.leftViewMode = UITextFieldViewModeAlways;
+        _nameTF.layer.cornerRadius = 15;
+        _nameTF.layer.masksToBounds = YES;
+        _nameTF.layer.borderWidth = 1;_nameTF.layer.borderColor = [UIColor greenColor].CGColor;
     }
     return _nameTF;
 }
