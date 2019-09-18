@@ -10,6 +10,7 @@
 #import "HHAdminViewController.h"
 #import "HHNewsViewController.h"
 #import "HHVideoViewController.h"
+#import "HHRacViewController.h"
 #import "HHNavigationController.h"
 @interface HHTabBarController ()<UITabBarDelegate,UITabBarControllerDelegate>
 
@@ -27,7 +28,7 @@
     NSArray *controllers = @[@"HHNewsViewController",
                                  @"HHVideoViewController",
                                  @"HHLikeViewController",
-                                 @"HHAdminViewController"];
+                                 @"HHRacViewController"];
     NSMutableArray *viewControllers = [NSMutableArray array];
     for (int i = 0; i < controllers.count; i ++) {
         [viewControllers addObject: [self addChildName:controllers[i]

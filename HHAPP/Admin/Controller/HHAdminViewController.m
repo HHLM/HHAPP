@@ -8,6 +8,7 @@
 
 #import "HHAdminViewController.h"
 #import "HHAdminViewModel.h"
+#import "HHRacSubjectViewController.h"
 #import <RACReturnSignal.h>
 @interface HHAdminViewController ()<UITextFieldDelegate>
 
@@ -24,19 +25,7 @@
     [self.view addSubview:self.nameBtn];
     self.nameTF.delegate = self;
 
-    /**
-        MVVM UI和Model通过viewModel数据双向绑定：
-        点击UI去调用接口改变数据
-        监听数据改变从而改变UI
-     */
-    self.vm = [[HHAdminViewModel alloc] init];
-    [self.vm initWithBlock:^(NSArray *_Nonnull array) {
-        NSLog(@"%@", array);
-        [array.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
-            NSLog(@"这是什么：%@--%@",x,[NSThread currentThread]);
-        }];
-        self.vm.dataArray = [array copy];
-    }];
+  
 //    [self hh_rac];
 //    [self Rac_KVO];
 //    [self Rac_NSNotification];
@@ -46,9 +35,114 @@
 //    [self hh_take];
 //    [self hh_retry];
 //    [self hh_switchToLatest];
-    [self Rac_Protocol];
+//    [self Rac_Protocol];
+//    [self creatSignal];
+    [self creatSubject];
+    [self creatReplaySubject];
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    HHRacSubjectViewController *vc = [HHRacSubjectViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+    RACSubject *subject = [RACSubject subject];
+    vc.subject = subject;
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"获取到的信号：%@",x);
+    }];
+}
+#pragma mark MVVM
+- (void)crearMVVM {
+    /**
+     MVVM UI和Model通过viewModel数据双向绑定：
+     点击UI去调用接口改变数据
+     监听数据改变从而改变UI
+     */
+    self.vm = [[HHAdminViewModel alloc] init];
+    [self.vm initWithBlock:^(NSArray *_Nonnull array) {
+        NSLog(@"%@", array);
+        [array.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
+            NSLog(@"这是什么：%@--%@",x,[NSThread currentThread]);
+        }];
+        self.vm.dataArray = [array copy];
+    }];
 }
 
+#pragma mark 创建一个信号 订阅信号
+- (void)creatSignal {
+    //*!!!:应用场景
+    //1、创建一个信号
+    NSLog(@"1");
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        
+        // 每当订阅者订阅信号，就会调用block
+        //3、发送一个信号
+        NSLog(@"3");
+        [subscriber sendNext:@"这是发送的一个信号"];
+        //5、不在需要发送数据，发送完成  内部就会自动取消订阅信号
+         NSLog(@"5");
+        [subscriber sendCompleted];
+         NSLog(@"6");
+        //6、信号被取消：1、主动取消 2、主动取消会调用block
+        return [RACDisposable disposableWithBlock:^{
+            NSLog(@"7");
+            NSLog(@"取消订阅信号");
+        }];
+    }];
+    
+     NSLog(@"2");
+    //2、MARK:订阅一个信号  只要订阅信号，就会返回一个取消订阅信号的类
+    [signal subscribeNext:^(id  _Nullable x) {
+        //4、接受到信号
+         NSLog(@"4");
+    }];
+}
+
+- (void)creatSubject {
+    //*!!!:应用场景 代替代理 回调数据 先订阅后发送消息
+    RACSubject *subject = [RACSubject subject];
+    //订阅信号
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第一个订阅：%@",x);
+    }];
+    //发送信号
+    [subject sendNext:@"发送了一个信号1~~~"];
+    [subject sendNext:@"发送了一个信号2~~~"];
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第二个订阅：%@",x);
+    }];
+}
+- (void)creatReplaySubject {
+    //*!!!:应用场景 重复提供信号
+    RACReplaySubject *subject = [RACReplaySubject subject];
+    //订阅信号
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第一个Replay订阅：%@",x);
+    }];
+    //发送信号
+    [subject sendNext:@"发送了一个信号1~~~"];
+    [subject sendNext:@"发送了一个信号2~~~"];
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第二个Replay订阅：%@",x);
+    }];
+}
+
+
+#pragma mark 创建一个协议
+- (void)creatProtocol {
+    
+}
+#pragma mark 创建一个KVO
+- (void)creatKVO {
+    // skip 跳过第一个
+    [[RACObserve(self.vm, dataArray) skip:1] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+}
+#pragma mark 创建一个通知中心
+- (void)creatNotification {
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"ss" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        
+    }];
+}
 /** KVO */
 - (void)Rac_KVO {
     //跳过第一个信号
