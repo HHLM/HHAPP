@@ -17,6 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 //*!!!:2、Project -> Capabilities -> in-App Purchase -> YES 上线时候打开要不然会没有商品
 
+/**
+ 内购步骤：
+ 0 、检测本地时候有未校验的receipt  遍历取到后 走下面 ----> 4步骤
+ 1、判断当前环境是否支持内购
+ 2、从苹果服务器获取能够支付的商品id
+        — 获取成功并且有数据进行 3步骤
+ 3、购买产品加入购买队列，并且绑定用户id 这样为了让后端能够区分这个订单是那个用户的
+        — 成功：就本地获取receipt 保存到本地 进行 ----> 4步骤
+        — 失败：判断是用户自己取消，还是支付失败问题
+4、 接3步骤的成功  上传到服务器进行验证 、若成功就删除本地的receipt 失败不走
+5、验证成功后处理后面的逻辑
+ */
+
 typedef NS_ENUM(NSInteger,HHAppPurchaseFailedCode) {
     HHIAP_APPLEFAILED       = 0,    //苹果返回错误
     HHIAP_NOPERMISSION      = 1,    //没有开启内购权限

@@ -10,6 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+  文件管理
+ 1、找到沙盒地址
+ 2、直接创建文件夹或者文件
+ 3、判断是否存在存在就不必操作
+ 4、读取操作反过来
+ */
+
 @interface HHFileManager : NSObject
 
 + (instancetype)shareInstall;
