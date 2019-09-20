@@ -95,51 +95,33 @@
 }
 
 #pragma mark 保存文件到某个文件夹
-+ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolder {
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolderName {
     NSString *path = nil;
-    if (targetFolder == nil || targetFolder.length < 1) {
+    if (targetFolderName == nil || targetFolderName.length < 1) {
         path = [[self documentsFilePath] stringByAppendingPathComponent:fileName];
     } else {
-        path = [self creatFolder:targetFolder];
+        path = [self creatFolder:targetFolderName];
         if (!path) {
-            path = [self creatFolder:targetFolder];
+            path = [self creatFolder:targetFolderName];
         }
         path = [path stringByAppendingPathComponent:fileName];
     }
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"%@：文件已创建", fileName);
-        return YES;
-    } else {
-        BOOL res = [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-
-        if (res) {
-            NSLog(@"文件创建成功");
-        } else {
-            NSLog(@"文件创建失败");
-            return res;
-        }
-        if ([file isKindOfClass:[NSString class]]) {
-            return [file writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        } else if ([file isKindOfClass:[UIImage class]]) {
-            UIImage *image = file;
-            NSData *data = UIImageJPEGRepresentation(image, 1);
-            return [data writeToFile:path atomically:YES];
-        } else if ([file isKindOfClass:[NSData class]]) {
-            NSData *data = file;
-            return [data writeToFile:path atomically:YES];
-        } else if ([file isKindOfClass:[NSDictionary class]] || [file isKindOfClass:[NSArray class]]) {
-            NSData *data = [NSJSONSerialization dataWithJSONObject:file options:NSJSONWritingPrettyPrinted error:nil];
-            NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            return [jsonStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        }
-        return res;
-    }
+    return [self saveFile:file toTargetPath:path];
 }
 
 #pragma mark 保存文件
 + (BOOL)creatFile:(id)file fileName:(NSString *)fileName {
     NSString *targetFolder = nil;
     return [self creatFile:file fileName:fileName toTagertFolder:targetFolder];
+}
+
+#pragma mark 保存文件到某个文件夹路径
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolderPath:(NSString *)targetFolderPath {
+    NSString *path = [targetFolderPath stringByAppendingPathComponent:fileName];
+    if (targetFolderPath == nil || targetFolderPath.length < 1) {
+        path = [[self documentsFilePath] stringByAppendingPathComponent:fileName];
+    }
+    return [self saveFile:file toTargetPath:targetFolderPath];
 }
 
 #pragma mark 追加文本
@@ -200,26 +182,35 @@
     return [NSData dataWithContentsOfFile:filePath];
 }
 
-#pragma mark 获取文件夹中所有文件名字
-+ (NSArray *)enumeratorFolder:(NSString *)folderName {
+
+#pragma mark 获取指定路径的文件夹中所有文件名字
++ (NSArray *)enumeratorOtherFolderPath:(NSString *)folderPath {
+    return [self enumeratorOtherFolderPath:folderPath folderName:@""];
+}
+
+#pragma mark 获取指定路径下指定文件夹中所有文件名字
++ (NSArray *)enumeratorOtherFolderPath:(NSString *)folderPath folderName:(NSString *)folderName {
+    NSString *path = folderPath;
+    if (folderName && folderName.length > 0) {
+        path = [folderPath stringByAppendingPathComponent:folderName];
+    }
+    return [self getFileNameFromFolderPath:path];
+    
+}
+#pragma mark 获取非Document目录下文件夹中所有文件名字
+
++ (NSArray *)enumeratorDocumentFolder:(NSString *)folderName {
     NSString *folderPath = [self documentsFilePath];
     if (folderName && folderName.length > 0) {
         folderPath = [[self documentsFilePath] stringByAppendingPathComponent:folderName];
     }
-    if ([[NSFileManager defaultManager] fileExistsAtPath:folderPath]) {
-        NSEnumerator *childEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:folderPath] objectEnumerator];
-        NSMutableArray *fileNameArray = [NSMutableArray array];
-        NSString *fileName = nil;
-        while ((fileName =  [childEnumerator nextObject]) != nil)
-            [fileNameArray addObject:fileName];
-        return fileNameArray;
-    }
-    return @[];
+    return [self getFileNameFromFolderPath:folderPath];
 }
+
 
 #pragma mark 遍历获取Document中文件名字
 + (NSArray *)enumeratorDocumentFolder {
-    return [self enumeratorFolder:@""];
+    return [self enumeratorDocumentFolder:@""];
 }
 
 #pragma mark 计算文件大小
@@ -268,6 +259,55 @@
     NSString *deleteName = [path stringByDeletingLastPathComponent]; // 文件删除最后一个部分
     NSString *appendName = [path stringByAppendingPathComponent:@"cy.jpg"]; // 文件追加一个部分
     NSLog(@"获得所有文件%@\n 获得最后文件%@\n 删除之后的名称%@\n追加名称%@\n", array, lastName, deleteName, appendName);
+}
+
+#pragma mark private方法
+//*!!!:获取目标文件中的文件
++ (NSArray *)getFileNameFromFolderPath:(NSString *)folderPath {
+    NSString *path = folderPath;
+    if (path && path.length > 0) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            NSEnumerator *childEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:path] objectEnumerator];
+            NSMutableArray *fileNameArray = [NSMutableArray array];
+            NSString *fileName = nil;
+            while ((fileName =  [childEnumerator nextObject]) != nil)
+                [fileNameArray addObject:fileName];
+            return fileNameArray;
+        }else {
+            return @[];
+        }
+    }
+    return @[];
+}
+
+//*!!!:保存文件
++ (BOOL)saveFile:(id)file toTargetPath:(NSString *)path {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        return YES;
+    } else {
+        BOOL res = [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+        if (res) {
+            NSLog(@"文件创建成功");
+        } else {
+            NSLog(@"文件创建失败");
+            return res;
+        }
+        if ([file isKindOfClass:[NSString class]]) {
+            return [file writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        } else if ([file isKindOfClass:[UIImage class]]) {
+            UIImage *image = file;
+            NSData *data = UIImageJPEGRepresentation(image, 1);
+            return [data writeToFile:path atomically:YES];
+        } else if ([file isKindOfClass:[NSData class]]) {
+            NSData *data = file;
+            return [data writeToFile:path atomically:YES];
+        } else if ([file isKindOfClass:[NSDictionary class]] || [file isKindOfClass:[NSArray class]]) {
+            NSData *data = [NSJSONSerialization dataWithJSONObject:file options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            return [jsonStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        }
+        return res;
+    }
 }
 
 @end

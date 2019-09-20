@@ -239,7 +239,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "+creatFile:fileName:toTagertFolder:"
+            landmarkName = "+getFileNameFromFolderPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

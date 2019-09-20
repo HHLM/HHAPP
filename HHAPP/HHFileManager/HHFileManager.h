@@ -56,10 +56,21 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param file 文件
  @param fileName 文件名称
- @param targetFolder 目标文件夹 为nil或者长度为0时候默认在doucument中
+ @param targetFolderName 目标文件夹名称 为nil或者长度为0时候默认在doucument中
  @return 是否成功
  */
-+ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolder;
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolderName;
+
+
+/**
+ 保存文件到某个文件夹
+ 
+ @param file 文件
+ @param fileName 文件名称
+ @param targetFolderPath 目标文件路径
+ @return 是否成功
+ */
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolderPath:(NSString *)targetFolderPath;
 
 /**
  追加文本
@@ -132,19 +143,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSData *)readDataAtFilepath:(NSString *)filePath ;
 
-#pragma mark 获取文件夹中所有文件名字
-
+#pragma mark 获取指定路径下文件夹中所有文件名字
 /**
 获取指定文件中文件的文件名字 &PS不包含子文件夹下的文件
+ */
 
- @param folderName 文件夹名称
+/**
+ 获取指定路径下文件夹中所有文件名字
+
+ @param folderPath 指定路径
  @return 数组
  */
-+ (NSArray *)enumeratorFolder:(NSString *)folderName;
++ (NSArray *)enumeratorOtherFolderPath:(NSString *)folderPath;
 
 
-#pragma mark 遍历获取Document中文件名字
+#pragma mark 获取指定路径下指定文件夹中所有文件名字
+/**
+ 获取指定路径下指定文件夹中所有文件名字
 
+ @param folderPath 指定路径
+ @param folderName 指定文件夹
+ @return 数组
+ */
++ (NSArray *)enumeratorOtherFolderPath:(NSString *)folderPath folderName:(NSString *)folderName;
+
+
+#pragma mark 遍历获取Document目录下的文件中文件名字
+
+
+/**
+ 遍历获取Document目录下的文件中文件名字
+
+ @param folderName Document下的目录
+ @return 数组
+ */
++ (NSArray *)enumeratorDocumentFolder:(NSString *)folderName;
+
+#pragma mark 遍历获取Document目录下文件名字
 /**
  获取Document文件夹下的文件
 
