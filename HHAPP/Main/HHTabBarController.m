@@ -49,6 +49,7 @@
     
     self.tabBar.translucent = NO;
     
+    
 }
 - (HHNavigationController *)addChildName:(NSString *)childName
                                    title:(NSString *)title

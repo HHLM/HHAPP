@@ -13,6 +13,7 @@
 #import "HHRacModel.h"
 @interface HHRacListViewController ()
 
+@property (nonatomic, strong) HHRacModel *vm;
 @property (nonatomic, strong) NSArray *titlesArray;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDictionary *infoDict;
@@ -53,6 +54,7 @@
 
 - (void)initViewModel {
     HHRacModel *vm = [HHRacModel new];
+    self.vm = vm;
     @weakify(self);
     [[vm.command execute:@"MMMMMM"] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
@@ -61,9 +63,17 @@
         NSLog(@"%@",data);
         return @{@"name":@"小明"};
     }];
+    
+    [RACObserve(self.vm, name) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"监听变化：%@",x);
+    }];
+    
+
+    
 }
 
 - (void)didSelectIndex:(NSInteger)index {
+    self.vm.name = @(index).description;
     if (index == 0) {
         [self creatSignal];
     } else if (index == 1) {
@@ -74,6 +84,8 @@
         [self rac_RACTuple];
     } else if (index == 4) {
         [self creatRACCommand];
+    } else if (index == 5) {
+        [self creatRACMulticastConnection];
     }
 }
 
