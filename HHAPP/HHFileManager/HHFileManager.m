@@ -85,43 +85,63 @@
 
 #pragma mark 创建一个文件夹
 + (NSString *)creatFolder:(NSString *)folderName {
-    NSString *path = [[self documentsFilePath] stringByAppendingString:[NSString stringWithFormat:@"/%@", folderName]];
-    if ([self hasLive:path]) {
-        NSLog(@"创建的文件夹地址:%@",path);
-        return path;
+    NSString *folderPath = [[self documentsFilePath] stringByAppendingPathComponent:folderName];
+    if ([self hasLive:folderPath]) {
+        NSLog(@"文件夹地址:%@",folderPath);
+        return folderPath;
     } else {
         return nil;
     }
 }
 
-#pragma mark 保存文件
-+ (BOOL)creatFile:(id)file fileName:(NSString *)fileName {
-    NSString *path = [[self documentsFilePath] stringByAppendingString:[NSString stringWithFormat:@"%@", file]];
-
-    BOOL res = [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-
-    if (res) {
-        NSLog(@"文件创建成功");
-    } else {
-        NSLog(@"文件创建失败");
+#pragma mark 保存文件到某个文件夹
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolder {
+    
+    NSString *path = nil;
+    if (targetFolder == nil || targetFolder.length < 1) {
+        path = [[self documentsFilePath] stringByAppendingPathComponent:fileName];
+    }else {
+        path = [self creatFolder:targetFolder];
+        if (!path) {
+            path = [self creatFolder:targetFolder];
+        }
+        path = [path stringByAppendingPathComponent:fileName];
+    }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSLog(@"%@：文件已创建",fileName);
+        return YES;
+    }else {
+        BOOL res = [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+        
+        if (res) {
+            NSLog(@"文件创建成功");
+        } else {
+            NSLog(@"文件创建失败");
+            return res;
+        }
+        if ([file isKindOfClass:[NSString class]]) {
+            return [file writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        } else if ([file isKindOfClass:[UIImage class]]) {
+            UIImage *image = file;
+            NSData *data = UIImageJPEGRepresentation(image, 1);
+            return [data writeToFile:path atomically:YES];
+        } else if ([file isKindOfClass:[NSData class]]) {
+            NSData *data = file;
+            return [data writeToFile:path atomically:YES];
+        } else if ([file isKindOfClass:[NSDictionary class]] || [file isKindOfClass:[NSArray class]]) {
+            NSData *data = [NSJSONSerialization dataWithJSONObject:file options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            return [jsonStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        }
         return res;
     }
+}
 
-    if ([file isKindOfClass:[NSString class]]) {
-        return [@"" writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    } else if ([file isKindOfClass:[UIImage class]]) {
-        UIImage *image = file;
-        NSData *data = UIImageJPEGRepresentation(image, 1);
-        return [data writeToFile:path atomically:YES];
-    } else if ([file isKindOfClass:[NSData class]]) {
-        NSData *data = file;
-        return [data writeToFile:path atomically:YES];
-    } else if ([file isKindOfClass:[NSDictionary class]] || [file isKindOfClass:[NSArray class]]) {
-        NSData *data = [NSJSONSerialization dataWithJSONObject:file options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        return [jsonStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    }
-    return res;
+#pragma mark 保存文件
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName {
+    NSString *targetFolder = nil;
+    return [self creatFile:file fileName:fileName toTagertFolder:targetFolder];
+    
 }
 
 #pragma mark 追加文本

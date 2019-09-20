@@ -49,6 +49,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)creatFile:(id)file fileName:(NSString *)fileName;
 
+#pragma mark 保存文件到某个文件夹
+
+/**
+ 保存文件到某个文件夹
+
+ @param file 文件
+ @param fileName 文件名称
+ @param targetFolder 目标文件夹 为nil或者长度为0时候默认在doucument中
+ @return 是否成功
+ */
++ (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolder;
+
 /**
  追加文本
 

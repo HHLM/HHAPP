@@ -50,9 +50,9 @@
     [HHFileManager creatFolder:@"HHLM"];
 }
 - (void)saveFile {
-    for (int i = 0; i < 10; i ++) {
-        [HHFileManager creatFile:@"1111" fileName:[NSString stringWithFormat:@"text%d.txt",i]];
-    }
+
+    [HHFileManager creatFile:@"333333" fileName:@"HHLM.txt"];
+    [HHFileManager creatFile:@"2222222" fileName:@"ZXY.txt" toTagertFolder:@"ZXY"];
     
 }
 - (HHRacTableView *)tableView {
