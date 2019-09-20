@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHFileManager : NSObject
 
++ (instancetype)shareInstall;
+
 + (NSString *)homeFilePath;             // 程序主目录，可见子目录(3个):Documents、Library、tmp
 /** 程序目录 */
 + (NSString *)appFilePath;              // 程序目录，不能存任何东西
@@ -63,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 文件/文件夹地址
  @return 是否成功
  */
-- (BOOL)removePath:(NSString *)filePath;
++ (BOOL)removePath:(NSString *)filePath;
 
 
 #pragma mark 移动文件
@@ -75,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param targetFilePath 目标地址
  @return 是否成功
  */
-- (BOOL)moveFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath;
++ (BOOL)moveFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath;
 
 #pragma mark copy文件
 
@@ -86,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param targetFilePath 目标地址
  @return 是否成功
  */
-- (BOOL)copyFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath ;
++ (BOOL)copyFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath ;
 
 #pragma mark 读取保存的文本
 
@@ -96,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 文本保存地址
  @return 读取内容
  */
-- (NSString *)readStringAtFliePath:(NSString *)filePath ;
++ (NSString *)readStringAtFliePath:(NSString *)filePath ;
 
 #pragma mark 读取保存的图片
 
@@ -106,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 图片保存地址
  @return 图片
  */
-- (UIImage *)readImageAtFilepath:(NSString *)filePath ;
++ (UIImage *)readImageAtFilepath:(NSString *)filePath ;
 
 #pragma mark 读取保存的文件
 
@@ -116,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 文件保存地址
  @return 文件data
  */
-- (NSData *)readDataAtFilepath:(NSString *)filePath ;
++ (NSData *)readDataAtFilepath:(NSString *)filePath ;
 
 #pragma mark 计算文件大小
 
@@ -126,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param filePath 文件地址
  @return 文件大小
  */
-- (unsigned long long)fileSizeAtFilePath:(NSString *)filePath ;
++ (unsigned long long)fileSizeAtFilePath:(NSString *)filePath ;
 
 #pragma mark 计算文件夹大小
 
@@ -136,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param folderPath 文件夹地址
  @return 文件夹大小
  */
-- (unsigned long long)fileSizeAtFolderPath:(NSString *)folderPath ;
++ (unsigned long long)fileSizeAtFolderPath:(NSString *)folderPath ;
 
 #pragma mark 文件大小格式化
 
@@ -146,7 +148,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param fileSize 文件大小
  @return 格式化后的结果
  */
-- (NSString *)formatSize:(unsigned long long)fileSize ;
++ (NSString *)formatSize:(unsigned long long)fileSize ;
+
++  (void)test;
 @end
 
 NS_ASSUME_NONNULL_END

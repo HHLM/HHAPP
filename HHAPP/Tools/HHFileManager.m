@@ -9,6 +9,18 @@
 #import "HHFileManager.h"
 
 @implementation HHFileManager
+
++ (instancetype)shareInstall {
+    static dispatch_once_t onceToken;
+    static HHFileManager *fileManger =  nil;
+    dispatch_once(&onceToken, ^{
+        if (!fileManger) {
+            fileManger = [[HHFileManager alloc] init];
+        }
+    });
+    return fileManger;
+}
+
  // 程序主目录，可见子目录(3个):Documents、Library、tmp
 + (NSString *)homeFilePath {
     NSString *filePath = NSHomeDirectory();
@@ -122,7 +134,7 @@
 }
 
 #pragma mark 删除文件
-- (BOOL)removePath:(NSString *)filePath {
++ (BOOL)removePath:(NSString *)filePath {
     BOOL res =  [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
     if (res) {
         NSLog(@"文件删除成功");
@@ -133,7 +145,7 @@
 }
 
 #pragma mark 移动文件
-- (BOOL)moveFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath {
++ (BOOL)moveFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath {
     BOOL res = [[NSFileManager defaultManager] moveItemAtPath:filePath toPath:targetFilePath error:nil];
     if (res) {
         NSLog(@"文件移动成功");
@@ -144,7 +156,7 @@
 }
 
 #pragma mark copy文件
-- (BOOL)copyFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath {
++ (BOOL)copyFilePath:(NSString *)filePath toTargetFilePath:(NSString *)targetFilePath {
     BOOL res = [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:targetFilePath error:nil];
     if (res) {
         NSLog(@"文件copy成功");
@@ -155,22 +167,22 @@
 }
 
 #pragma mark 读取保存的文本
-- (NSString *)readStringAtFliePath:(NSString *)filePath {
++ (NSString *)readStringAtFliePath:(NSString *)filePath {
     return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 }
 
 #pragma mark 读取保存的图片
-- (UIImage *)readImageAtFilepath:(NSString *)filePath {
++ (UIImage *)readImageAtFilepath:(NSString *)filePath {
     return [UIImage imageWithContentsOfFile:filePath];
 }
 
 #pragma mark 读取保存的文件
-- (NSData *)readDataAtFilepath:(NSString *)filePath {
++ (NSData *)readDataAtFilepath:(NSString *)filePath {
     return [NSData dataWithContentsOfFile:filePath];
 }
 
 #pragma mark 计算文件大小
-- (unsigned long long)fileSizeAtFilePath:(NSString *)filePath {
++ (unsigned long long)fileSizeAtFilePath:(NSString *)filePath {
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileSize];
         return fileSize;
@@ -178,7 +190,7 @@
 }
 
 #pragma mark 计算文件夹大小
-- (unsigned long long)fileSizeAtFolderPath:(NSString *)folderPath {
++ (unsigned long long)fileSizeAtFolderPath:(NSString *)folderPath {
     if ([[NSFileManager defaultManager] fileExistsAtPath:folderPath]) {
         NSEnumerator *childEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:folderPath] objectEnumerator];
         NSString *fileName = @"";
@@ -193,7 +205,7 @@
 }
 
 #pragma mark 文件大小格式化
-- (NSString *)formatSize:(unsigned long long)fileSize {
++ (NSString *)formatSize:(unsigned long long)fileSize {
     if (fileSize <= 0) {
         return @"0K";
     }
@@ -204,5 +216,14 @@
     }else  {
         return [NSString stringWithFormat:@"%0.2fM",(fileSize/1024.f/1024)];
     }
+}
+
++  (void)test {
+    NSString * path = @"/Doc/work/diary";
+    NSArray * array = [path pathComponents];//文件的各个部分
+    NSString * lastName = [path lastPathComponent];//文件的最后一个部分
+    NSString * deleteName = [path stringByDeletingLastPathComponent];// 文件删除最后一个部分
+    NSString * appendName = [path stringByAppendingPathComponent:@"cy.jpg"];// 文件追加一个部分
+    NSLog(@"获得所有文件%@\n 获得最后文件%@\n 删除之后的名称%@\n追加名称%@\n",array,lastName,deleteName,appendName);
 }
 @end
