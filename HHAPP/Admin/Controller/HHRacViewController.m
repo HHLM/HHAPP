@@ -15,13 +15,13 @@
 
 @property (nonatomic, strong) NSArray *titlesArry;
 @property (nonatomic, strong) NSArray *viewControllers;
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UITableView *table;
 @end
 @implementation HHRacViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];
-    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.table];
     
     
 }
@@ -32,7 +32,7 @@
     self.viewControllers = @[@"HHAdminViewController",
                              @"HHRacListViewController",
                              @"HHFileManagerViewController",
-                             @"HHFileManagerViewController"];
+                             @"HHAppPurchaseViewController"];
 }
 
 #pragma mark UITableVieDelegate
@@ -58,19 +58,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Class cls = NSClassFromString(self.viewControllers[indexPath.row]);
     BaseViewController *vc = [[cls alloc] init];
+    vc.title = self.titlesArry[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark creat UI
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.estimatedRowHeight = 100; //设置估计高度
-        _tableView.rowHeight = UITableViewAutomaticDimension;
-        _tableView.estimatedSectionHeaderHeight = 0;
-        _tableView.estimatedSectionFooterHeight = 0;
-    }return _tableView;
+- (UITableView *)table {
+    if (!_table) {
+        _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _table.delegate = self;
+        _table.dataSource = self;
+        _table.estimatedRowHeight = 100; //设置估计高度
+        _table.rowHeight = UITableViewAutomaticDimension;
+        _table.estimatedSectionHeaderHeight = 0;
+        _table.estimatedSectionFooterHeight = 0;
+    }return _table;
 }
 @end

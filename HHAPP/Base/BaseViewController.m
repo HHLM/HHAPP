@@ -18,15 +18,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)config {
+    
 }
-*/
+
+- (void)addDataView {
+    [self.view addSubview:self.tableView];
+}
+
+- (HHRacTableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[HHRacTableView alloc] initWithFrame:self.view.bounds];
+    }return _tableView;
+}
 
 @end

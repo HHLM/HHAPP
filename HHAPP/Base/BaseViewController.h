@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseTableViewCell.h"
+#import "HHRacTableView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
-
+@property (nonatomic, strong) HHRacTableView *tableView;
+- (void)config;
+- (void)addDataView;
 @end
 
 NS_ASSUME_NONNULL_END

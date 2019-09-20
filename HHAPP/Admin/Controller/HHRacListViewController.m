@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSArray *titlesArray;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDictionary *infoDict;
-@property (nonatomic, strong) HHRacTableView *tableView;
 @end
 
 @implementation HHRacListViewController
@@ -25,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];
-    [self.view addSubview:self.tableView];
+    [self addDataView];
     self.tableView.titlesArray = self.titlesArray;
     RACSubject *subject = [RACSubject subject];
     self.tableView.subject = subject;
@@ -239,14 +238,6 @@
     [subject subscribeNext:^(id _Nullable x) {
         NSLog(@"第二个Replay订阅：%@", x);
     }];
-}
-
-#pragma mark creat UI
-- (HHRacTableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[HHRacTableView alloc] initWithFrame:self.view.bounds];
-    }
-    return _tableView;
 }
 
 @end

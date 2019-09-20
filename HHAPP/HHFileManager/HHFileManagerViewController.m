@@ -12,7 +12,6 @@
 @interface HHFileManagerViewController ()
 
 @property (nonatomic, strong) NSArray *titlesArray;
-@property (nonatomic, strong) HHRacTableView *tableView;
 @end
 
 @implementation HHFileManagerViewController
@@ -20,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];
+    [self addDataView];
     [self updataMainUI];
 }
 - (void)config {
@@ -68,9 +68,5 @@
         NSLog(@"文件名：%@\n文件地址：%@",fileName,[[HHFileManager creatFolder:@"Test"] stringByAppendingPathComponent:fileName]);
     }
 }
-- (HHRacTableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[HHRacTableView alloc] initWithFrame:self.view.bounds];
-    }return _tableView;
-}
+
 @end
