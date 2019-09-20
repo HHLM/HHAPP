@@ -51,10 +51,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.subject) {
         [self.subject sendNext:@(indexPath.row)];
-//        [self.subject sendCompleted];
     }
-//    if (self.replay) {
-//        [self.replay sendNext:@(indexPath.row)];
-//    }
 }
 @end

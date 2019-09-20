@@ -49,7 +49,7 @@
 // 缓存目录，系统永远不会删除这里的文件，ITUNES会删除
 + (NSString *)libCacheFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    return [[paths objectAtIndex:0] stringByAppendingString:@"Caches"];
+    return [[paths objectAtIndex:0] stringByAppendingString:@"/Caches"];
 }
 
 // 临时缓存目录，APP退出后，系统可能会删除这里的内容
@@ -87,6 +87,7 @@
 + (NSString *)creatFolder:(NSString *)folderName {
     NSString *path = [[self documentsFilePath] stringByAppendingString:[NSString stringWithFormat:@"/%@", folderName]];
     if ([self hasLive:path]) {
+        NSLog(@"创建的文件夹地址:%@",path);
         return path;
     } else {
         return nil;
