@@ -64,7 +64,7 @@
 }
 - (void)eumeunFolderFiles {
 //    NSLog(@"文件夹下的文件名：%@",[HHFileManager enumeratorFolder:@"Test"]);
-    for (NSString *fileName in [HHFileManager enumeratorFolder:@"Test"]) {
+    for (NSString *fileName in [HHFileManager enumeratorDocumentFolder:@"Test"]) {
         NSLog(@"文件名：%@\n文件地址：%@",fileName,[[HHFileManager creatFolder:@"Test"] stringByAppendingPathComponent:fileName]);
     }
 }
