@@ -132,6 +132,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSData *)readDataAtFilepath:(NSString *)filePath ;
 
+#pragma mark 获取文件夹中所有文件名字
+
+/**
+获取指定文件中文件的文件名字 &PS不包含子文件夹下的文件
+
+ @param folderName 文件夹名称
+ @return 数组
+ */
++ (NSArray *)enumeratorFolder:(NSString *)folderName;
+
+
+#pragma mark 遍历获取Document中文件名字
+
+/**
+ 获取Document文件夹下的文件
+
+ @return 数组
+ */
++ (NSArray *)enumeratorDocumentFolder;
+
 #pragma mark 计算文件大小
 
 /**

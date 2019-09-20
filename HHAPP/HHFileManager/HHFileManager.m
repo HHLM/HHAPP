@@ -21,7 +21,7 @@
     return fileManger;
 }
 
- // 程序主目录，可见子目录(3个):Documents、Library、tmp
+// 程序主目录，可见子目录(3个):Documents、Library、tmp
 + (NSString *)homeFilePath {
     NSString *filePath = NSHomeDirectory();
     return filePath;
@@ -77,6 +77,7 @@
                                                                error:nil];
     if (res) {
         NSLog(@"文件夹创建成功");
+        NSLog(@"文件夹地址:%@", path);
     } else {
         NSLog(@"文件夹创建失败");
     }
@@ -87,7 +88,6 @@
 + (NSString *)creatFolder:(NSString *)folderName {
     NSString *folderPath = [[self documentsFilePath] stringByAppendingPathComponent:folderName];
     if ([self hasLive:folderPath]) {
-        NSLog(@"文件夹地址:%@",folderPath);
         return folderPath;
     } else {
         return nil;
@@ -96,11 +96,10 @@
 
 #pragma mark 保存文件到某个文件夹
 + (BOOL)creatFile:(id)file fileName:(NSString *)fileName toTagertFolder:(NSString *)targetFolder {
-    
     NSString *path = nil;
     if (targetFolder == nil || targetFolder.length < 1) {
         path = [[self documentsFilePath] stringByAppendingPathComponent:fileName];
-    }else {
+    } else {
         path = [self creatFolder:targetFolder];
         if (!path) {
             path = [self creatFolder:targetFolder];
@@ -108,11 +107,11 @@
         path = [path stringByAppendingPathComponent:fileName];
     }
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"%@：文件已创建",fileName);
+        NSLog(@"%@：文件已创建", fileName);
         return YES;
-    }else {
+    } else {
         BOOL res = [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-        
+
         if (res) {
             NSLog(@"文件创建成功");
         } else {
@@ -141,7 +140,6 @@
 + (BOOL)creatFile:(id)file fileName:(NSString *)fileName {
     NSString *targetFolder = nil;
     return [self creatFile:file fileName:fileName toTagertFolder:targetFolder];
-    
 }
 
 #pragma mark 追加文本
@@ -159,7 +157,7 @@
     BOOL res =  [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
     if (res) {
         NSLog(@"文件删除成功");
-    }else {
+    } else {
         NSLog(@"文件删除失败");
     }
     return res;
@@ -170,7 +168,7 @@
     BOOL res = [[NSFileManager defaultManager] moveItemAtPath:filePath toPath:targetFilePath error:nil];
     if (res) {
         NSLog(@"文件移动成功");
-    }else {
+    } else {
         NSLog(@"文件移动失败");
     }
     return res;
@@ -181,7 +179,7 @@
     BOOL res = [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:targetFilePath error:nil];
     if (res) {
         NSLog(@"文件copy成功");
-    }else {
+    } else {
         NSLog(@"文件copy失败");
     }
     return res;
@@ -202,12 +200,35 @@
     return [NSData dataWithContentsOfFile:filePath];
 }
 
+#pragma mark 获取文件夹中所有文件名字
++ (NSArray *)enumeratorFolder:(NSString *)folderName {
+    NSString *folderPath = [self documentsFilePath];
+    if (folderName && folderName.length > 0) {
+        folderPath = [[self documentsFilePath] stringByAppendingPathComponent:folderName];
+    }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:folderPath]) {
+        NSEnumerator *childEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:folderPath] objectEnumerator];
+        NSMutableArray *fileNameArray = [NSMutableArray array];
+        NSString *fileName = nil;
+        while ((fileName =  [childEnumerator nextObject]) != nil)
+            [fileNameArray addObject:fileName];
+        return fileNameArray;
+    }
+    return @[];
+}
+
+#pragma mark 遍历获取Document中文件名字
++ (NSArray *)enumeratorDocumentFolder {
+    return [self enumeratorFolder:@""];
+}
+
 #pragma mark 计算文件大小
 + (unsigned long long)fileSizeAtFilePath:(NSString *)filePath {
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileSize];
         return fileSize;
-    }return 0;
+    }
+    return 0;
 }
 
 #pragma mark 计算文件夹大小
@@ -217,12 +238,13 @@
         NSString *fileName = @"";
         unsigned long long folderSize = 0;
         //遍历文件夹 查找文件获取每个文件的大小
-        while ((fileName =  [childEnumerator nextObject])!= nil) {
+        while ((fileName =  [childEnumerator nextObject]) != nil) {
             NSString *filePath = [folderPath stringByAppendingString:fileName];
             folderSize += [self fileSizeAtFolderPath:filePath];
         }
         return folderSize;
-    }return 0;
+    }
+    return 0;
 }
 
 #pragma mark 文件大小格式化
@@ -231,20 +253,21 @@
         return @"0K";
     }
     if (fileSize < 1024) {
-        return  [NSString stringWithFormat:@"%0.2fB",(fileSize/1.f)];;
-    }else if ((fileSize/1024.0) < 1024) {
-        return [NSString stringWithFormat:@"%0.2fkB",(fileSize/1024.f)];
-    }else  {
-        return [NSString stringWithFormat:@"%0.2fM",(fileSize/1024.f/1024)];
+        return [NSString stringWithFormat:@"%0.2fB", (fileSize / 1.f)];
+    } else if ((fileSize / 1024.0) < 1024) {
+        return [NSString stringWithFormat:@"%0.2fkB", (fileSize / 1024.f)];
+    } else {
+        return [NSString stringWithFormat:@"%0.2fM", (fileSize / 1024.f / 1024)];
     }
 }
 
-+  (void)test {
-    NSString * path = @"/Doc/work/diary";
-    NSArray * array = [path pathComponents];//文件的各个部分
-    NSString * lastName = [path lastPathComponent];//文件的最后一个部分
-    NSString * deleteName = [path stringByDeletingLastPathComponent];// 文件删除最后一个部分
-    NSString * appendName = [path stringByAppendingPathComponent:@"cy.jpg"];// 文件追加一个部分
-    NSLog(@"获得所有文件%@\n 获得最后文件%@\n 删除之后的名称%@\n追加名称%@\n",array,lastName,deleteName,appendName);
++ (void)test {
+    NSString *path = @"/Doc/work/diary";
+    NSArray *array = [path pathComponents]; //文件的各个部分
+    NSString *lastName = [path lastPathComponent]; //文件的最后一个部分
+    NSString *deleteName = [path stringByDeletingLastPathComponent]; // 文件删除最后一个部分
+    NSString *appendName = [path stringByAppendingPathComponent:@"cy.jpg"]; // 文件追加一个部分
+    NSLog(@"获得所有文件%@\n 获得最后文件%@\n 删除之后的名称%@\n追加名称%@\n", array, lastName, deleteName, appendName);
 }
+
 @end
