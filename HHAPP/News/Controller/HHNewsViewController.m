@@ -44,9 +44,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *url = [NSString stringWithFormat:@"HHLZXYRoutes://push/HHFileManagerViewController?name=%@",@"fromNextVC"];
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]
-                                      options:@{UIApplicationOpenURLOptionsSourceApplicationKey : @YES}
-                            completionHandler:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
+                                       options:@{UIApplicationOpenURLOptionsSourceApplicationKey : @YES}
+                             completionHandler:nil];
 }
 #pragma mark creat UI
 - (UITableView *)table {

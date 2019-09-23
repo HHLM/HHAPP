@@ -169,16 +169,13 @@
 		94ACF67422793F92002EE971 /* HHAPP */ = {
 			isa = PBXGroup;
 			children = (
-				94ACF6B4227949F7002EE971 /* Admin */,
 				94ACF68E227945C0002EE971 /* Base */,
 				94ACF6A6227947BD002EE971 /* Expand */,
-				94BC5F3F2334B23300DE0908 /* HHAppPurchase */,
-				94BC5F3B233495FB00DE0908 /* HHFileManager */,
-				94E13C9123385B4F00E34BDF /* HHRAC */,
 				94ACF690227945EC002EE971 /* Like */,
 				94ACF6A222794705002EE971 /* Main */,
 				94ACF69422794680002EE971 /* News */,
 				94ACF68C22794182002EE971 /* Others */,
+				94ACF6B4227949F7002EE971 /* Summarize */,
 				94ACF69522794680002EE971 /* Video */,
 			);
 			path = HHAPP;
@@ -364,15 +361,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		94ACF6B4227949F7002EE971 /* Admin */ = {
+		94ACF6B4227949F7002EE971 /* Summarize */ = {
 			isa = PBXGroup;
 			children = (
+				94BC5F3F2334B23300DE0908 /* HHAppPurchase */,
+				94BC5F3B233495FB00DE0908 /* HHFileManager */,
+				94E13C9123385B4F00E34BDF /* HHRAC */,
 				94ACF6B6227949F7002EE971 /* Controller */,
 				94ACF6B7227949F7002EE971 /* Model */,
 				94ACF6B8227949F7002EE971 /* View */,
 				94ACF6B5227949F7002EE971 /* ViewModel */,
 			);
-			path = Admin;
+			path = Summarize;
 			sourceTree = "<group>";
 		};
 		94ACF6B5227949F7002EE971 /* ViewModel */ = {
