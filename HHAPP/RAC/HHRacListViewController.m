@@ -36,6 +36,7 @@
     }];
     [self initViewModel];
 }
+
 - (void)config {
     
     self.title = @"RAC总结";
@@ -57,9 +58,9 @@
 - (void)initViewModel {
     HHRacModel *vm = [HHRacModel new];
     self.vm = vm;
-    @weakify(self);
+    //@weakify(self);
     [[vm.command execute:@"MMMMMM"] subscribeNext:^(id  _Nullable x) {
-        @strongify(self);
+        //@strongify(self);
     }];
     [vm initWithRacArrayBlock:^NSDictionary * _Nonnull(id  _Nonnull data) {
         NSLog(@"%@",data);
@@ -154,6 +155,7 @@
 //    }];
 
 }
+
 #pragma mark RACTuble 字典转模型
 - (void)rac_RACTuple {
     [self.titlesArray.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
