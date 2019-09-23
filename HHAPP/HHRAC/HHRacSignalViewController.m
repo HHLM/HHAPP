@@ -30,7 +30,9 @@ static NSString *const NotificationName = @"HH_RAC_NSNOTIFICATION_NAME";
     [self config];
     [self addDataView];
 }
-
+- (void)hh_popViewController {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)config {
     self.title = @"RAC使用";
     self.racModel = [[HHRacModel alloc] init];

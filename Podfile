@@ -8,6 +8,7 @@ pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'YYKit'
+ pod 'JLRoutes'
 pod 'ReactiveObjC', '~> 3.0.0'
 
 # pod 'helloXXXPod' :path => '../'

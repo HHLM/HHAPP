@@ -20,13 +20,11 @@
     [self showCustomIcon:@"MBHUD_Error" Title:error ToView:view];
 }
 
-+ (void)showSuccess:(NSString *)success
-{
++ (void)showSuccess:(NSString *)success {
     [self showSuccess:success ToView:nil];
 }
 
-+ (void)showSuccess:(NSString *)success ToView:(UIView *)view
-{
++ (void)showSuccess:(NSString *)success ToView:(UIView *)view {
     [self showCustomIcon:@"MBHUD_Success" Title:success ToView:view];
 }
 
@@ -34,8 +32,7 @@
     [self showInfo:Info ToView:nil];
 }
 
-+ (void)showInfo:(NSString *)Info ToView:(UIView *)view
-{
++ (void)showInfo:(NSString *)Info ToView:(UIView *)view {
     [self showCustomIcon:@"MBHUD_Info" Title:Info ToView:view];
 }
 
@@ -43,8 +40,7 @@
     [self showWarn:Warn ToView:nil];
 }
 
-+ (void)showWarn:(NSString *)Warn ToView:(UIView *)view
-{
++ (void)showWarn:(NSString *)Warn ToView:(UIView *)view {
     [self showCustomIcon:@"MBHUD_Warn" Title:Warn ToView:view];
 }
 
@@ -139,8 +135,7 @@
     [hud hideAnimated:YES afterDelay:time];
 }
 
-+ (void)showCustomIcon:(NSString *)iconName Title:(NSString *)title ToView:(UIView *)view
-{
++ (void)showCustomIcon:(NSString *)iconName Title:(NSString *)title ToView:(UIView *)view {
     if (view == nil) view = (UIView *)[UIApplication sharedApplication].delegate.window;
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -162,8 +157,7 @@
     [hud hideAnimated:YES afterDelay:1];
 }
 
-+ (void)hideHUDForView:(UIView *)view
-{
++ (void)hideHUDForView:(UIView *)view {
     if (view == nil) view = (UIView *)[UIApplication sharedApplication].delegate.window;
     [self hideHUDForView:view animated:YES];
 }

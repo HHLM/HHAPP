@@ -12,6 +12,7 @@
 #import "HHVideoViewController.h"
 #import "HHSummarizeViewController.h"
 #import "HHNavigationController.h"
+#import <JLRoutes/JLRoutes.h>
 @interface HHTabBarController ()<UITabBarDelegate,UITabBarControllerDelegate>
 
 @end
@@ -21,14 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *infoArray = @[
-  @[@"新闻",@"视频",@"推荐",@"我的"],
-  @[@"page",@"video",@"like",@"home"],
-  @[@"page_selected",@"video_selected",@"like_selected",@"home_selected"]];
+    NSArray *infoArray = @[@[@"新闻",@"视频",@"推荐",@"我的"],
+                           @[@"page",@"video",@"like",@"home"],
+                           @[@"page_selected",@"video_selected",@"like_selected",@"home_selected"]];
+    
     NSArray *controllers = @[@"HHNewsViewController",
-                                 @"HHVideoViewController",
-                                 @"HHLikeViewController",
-                                 @"HHSummarizeViewController"];
+                             @"HHVideoViewController",
+                             @"HHLikeViewController",
+                             @"HHSummarizeViewController"];
+    
     NSMutableArray *viewControllers = [NSMutableArray array];
     for (int i = 0; i < controllers.count; i ++) {
         [viewControllers addObject: [self addChildName:controllers[i]
@@ -48,7 +50,7 @@
                                              forState:UIControlStateNormal];
     
     self.tabBar.translucent = NO;
-    
+
     
 }
 - (HHNavigationController *)addChildName:(NSString *)childName
