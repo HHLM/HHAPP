@@ -42,6 +42,8 @@
 		94E13CA52338C6F800E34BDF /* HHColorTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E13CA42338C6F800E34BDF /* HHColorTool.m */; };
 		94E13CA92338C84000E34BDF /* UIColor+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E13CA82338C84000E34BDF /* UIColor+HHEXT.m */; };
 		94E13CAC2338C88400E34BDF /* UILabel+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E13CAB2338C88400E34BDF /* UILabel+HHEXT.m */; };
+		94E13CBA2338D19A00E34BDF /* HHConstFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E13CB92338D19A00E34BDF /* HHConstFile.m */; };
+		94E13CBD2338D2D200E34BDF /* UIImage+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E13CBC2338D2D200E34BDF /* UIImage+HHEXT.m */; };
 		94F4825022E5A513008A7C05 /* TRBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F4824F22E5A513008A7C05 /* TRBadgeButton.m */; };
 		94F4825322E5BA70008A7C05 /* UIView+HHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F4825222E5BA70008A7C05 /* UIView+HHExt.m */; };
 		CC33F2DC3024DCA4565778CE /* libPods-HHAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A5015BA7E5EF86DE231960 /* libPods-HHAPP.a */; };
@@ -120,6 +122,12 @@
 		94E13CA82338C84000E34BDF /* UIColor+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HHEXT.m"; sourceTree = "<group>"; };
 		94E13CAA2338C88400E34BDF /* UILabel+HHEXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+HHEXT.h"; sourceTree = "<group>"; };
 		94E13CAB2338C88400E34BDF /* UILabel+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HHEXT.m"; sourceTree = "<group>"; };
+		94E13CB62338D19A00E34BDF /* HHAPPAutoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAPPAutoSize.h; sourceTree = "<group>"; };
+		94E13CB72338D19A00E34BDF /* HHConstFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHConstFile.h; sourceTree = "<group>"; };
+		94E13CB82338D19A00E34BDF /* HHMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMacros.h; sourceTree = "<group>"; };
+		94E13CB92338D19A00E34BDF /* HHConstFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHConstFile.m; sourceTree = "<group>"; };
+		94E13CBB2338D2D200E34BDF /* UIImage+HHEXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HHEXT.h"; sourceTree = "<group>"; };
+		94E13CBC2338D2D200E34BDF /* UIImage+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HHEXT.m"; sourceTree = "<group>"; };
 		94F4824E22E5A512008A7C05 /* TRBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRBadgeButton.h; sourceTree = "<group>"; };
 		94F4824F22E5A513008A7C05 /* TRBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRBadgeButton.m; sourceTree = "<group>"; };
 		94F4825122E5BA70008A7C05 /* UIView+HHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HHExt.h"; sourceTree = "<group>"; };
@@ -161,12 +169,12 @@
 		94ACF67422793F92002EE971 /* HHAPP */ = {
 			isa = PBXGroup;
 			children = (
-				94E13C9123385B4F00E34BDF /* HHRAC */,
+				94ACF6B4227949F7002EE971 /* Admin */,
+				94ACF68E227945C0002EE971 /* Base */,
+				94ACF6A6227947BD002EE971 /* Expand */,
 				94BC5F3F2334B23300DE0908 /* HHAppPurchase */,
 				94BC5F3B233495FB00DE0908 /* HHFileManager */,
-				94ACF6B4227949F7002EE971 /* Admin */,
-				94ACF6A6227947BD002EE971 /* Tools */,
-				94ACF68E227945C0002EE971 /* Base */,
+				94E13C9123385B4F00E34BDF /* HHRAC */,
 				94ACF690227945EC002EE971 /* Like */,
 				94ACF6A222794705002EE971 /* Main */,
 				94ACF69422794680002EE971 /* News */,
@@ -254,21 +262,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		94ACF6A6227947BD002EE971 /* Tools */ = {
+		94ACF6A6227947BD002EE971 /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				94E13CB32338D19A00E34BDF /* Macros */,
 				94E13C952338AF6400E34BDF /* Category */,
-				94595F3422F038200004C8BA /* BadgeButton.h */,
-				94595F3522F038200004C8BA /* BadgeButton.m */,
-				94F4824E22E5A512008A7C05 /* TRBadgeButton.h */,
-				94F4824F22E5A513008A7C05 /* TRBadgeButton.m */,
-				94F4825122E5BA70008A7C05 /* UIView+HHExt.h */,
-				94F4825222E5BA70008A7C05 /* UIView+HHExt.m */,
-				94E13CA22338C61800E34BDF /* HHHeaderFiles.h */,
-				94E13CA32338C6F800E34BDF /* HHColorTool.h */,
-				94E13CA42338C6F800E34BDF /* HHColorTool.m */,
+				94E13CBE2338D55300E34BDF /* Tools */,
 			);
-			path = Tools;
+			path = Expand;
 			sourceTree = "<group>";
 		};
 		94ACF6A822794998002EE971 /* Model */ = {
@@ -457,8 +458,37 @@
 				94E13CA82338C84000E34BDF /* UIColor+HHEXT.m */,
 				94E13CAA2338C88400E34BDF /* UILabel+HHEXT.h */,
 				94E13CAB2338C88400E34BDF /* UILabel+HHEXT.m */,
+				94E13CBB2338D2D200E34BDF /* UIImage+HHEXT.h */,
+				94E13CBC2338D2D200E34BDF /* UIImage+HHEXT.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		94E13CB32338D19A00E34BDF /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				94E13CB62338D19A00E34BDF /* HHAPPAutoSize.h */,
+				94E13CB72338D19A00E34BDF /* HHConstFile.h */,
+				94E13CB92338D19A00E34BDF /* HHConstFile.m */,
+				94E13CB82338D19A00E34BDF /* HHMacros.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		94E13CBE2338D55300E34BDF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				94595F3422F038200004C8BA /* BadgeButton.h */,
+				94595F3522F038200004C8BA /* BadgeButton.m */,
+				94F4824E22E5A512008A7C05 /* TRBadgeButton.h */,
+				94F4824F22E5A513008A7C05 /* TRBadgeButton.m */,
+				94F4825122E5BA70008A7C05 /* UIView+HHExt.h */,
+				94F4825222E5BA70008A7C05 /* UIView+HHExt.m */,
+				94E13CA22338C61800E34BDF /* HHHeaderFiles.h */,
+				94E13CA32338C6F800E34BDF /* HHColorTool.h */,
+				94E13CA42338C6F800E34BDF /* HHColorTool.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		ADE42155F5956D692B7527F5 /* Frameworks */ = {
@@ -601,6 +631,8 @@
 				94E13CA12338C2CE00E34BDF /* AppDelegate+HHExt.m in Sources */,
 				94E13CA52338C6F800E34BDF /* HHColorTool.m in Sources */,
 				94ACF6C122794A43002EE971 /* HHNewsViewController.m in Sources */,
+				94E13CBA2338D19A00E34BDF /* HHConstFile.m in Sources */,
+				94E13CBD2338D2D200E34BDF /* UIImage+HHEXT.m in Sources */,
 				94ACF6C422794A52002EE971 /* HHVideoViewController.m in Sources */,
 				94BC5F3E2334961C00DE0908 /* HHFileManagerViewController.m in Sources */,
 				9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "HHNavigationController.h"
-
+#import "UIImage+HHEXT.h"
 @interface HHNavigationController ()<UINavigationControllerDelegate>
 @property (nonatomic, weak) id popDelegate;
 /** 隐藏导航的VC数组 */
@@ -52,13 +52,17 @@
 }
 
 //解决手势失效问题
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self.viewControllers.firstObject) {
         self.interactivePopGestureRecognizer.delegate = self.popDelegate;
     }else{
         self.interactivePopGestureRecognizer.delegate = nil;
     }
+    NSString *vcClass = [NSString stringWithFormat:@"%@",viewController.class];
+    BOOL hidden =  [self.hiddenNavigationBarVCs containsObject:vcClass];
+    //viewController.navigationController.navigationBar.hidden = hidden;
+    [self.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:hidden?[UIColor redColor]:[UIColor greenColor] andSize:CGSizeMake(kScreenWidth, kNavBarHeight)] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
 }
 
 - (UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController {
@@ -72,7 +76,9 @@
 //    //隐藏与显示导航
     NSString *vcClass = [NSString stringWithFormat:@"%@",viewController.class];
     BOOL hidden =  [self.hiddenNavigationBarVCs containsObject:vcClass];
-    viewController.navigationController.navigationBar.hidden = hidden;
+    //viewController.navigationController.navigationBar.hidden = hidden;
+    [self.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:hidden?[UIColor redColor]:[UIColor greenColor] andSize:CGSizeMake(kScreenWidth, kNavBarHeight)] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
 
     
     if ( navigationController.viewControllers.count > 1) {
@@ -94,11 +100,10 @@
     }
 }
 
-
 #pragma mark - Getters and Setters Method getter和setter方法
 - (NSArray *)hiddenNavigationBarVCs{
     if (_hiddenNavigationBarVCs == nil) {
-        _hiddenNavigationBarVCs = @[@"",@"", @""];
+        _hiddenNavigationBarVCs = @[@"HHRacSignalViewController",@"", @""];
     }
     return _hiddenNavigationBarVCs;
 }

@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 
 #import "HHHeaderFiles.h"
+#import "HHMacros.h"
+#import "HHAPPAutoSize.h"
 //scheme
 #define kScheme @"HHLZXYRoutes"
 #define HHLM @"sssss"

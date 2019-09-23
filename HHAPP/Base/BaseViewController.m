@@ -28,7 +28,7 @@
 - (HHRacTableView *)tableView {
     if (!_tableView) {
         _tableView = [[HHRacTableView alloc] initWithFrame:self.view.bounds];
-        _tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64);
+        _tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-kNavBarHeight);
     }return _tableView;
 }
 
