@@ -1,23 +1,23 @@
 //
-//  HHRacViewController.m
+//  HHSummarizeViewController.m
 //  HHAPP
 //
 //  Created by Now on 2019/9/18.
 //  Copyright © 2019 任他疾风起. All rights reserved.
 //
 
-#import "HHRacViewController.h"
+#import "HHSummarizeViewController.h"
 #import "HHRacListViewController.h"
-#import "HHAdminViewController.h"
+#import "HHRacBaseViewController.h"
 #import "HHFileManagerViewController.h"
 #import <RACReturnSignal.h>
-@interface HHRacViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface HHSummarizeViewController()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *titlesArry;
 @property (nonatomic, strong) NSArray *viewControllers;
 @property (nonatomic, strong) UITableView *table;
 @end
-@implementation HHRacViewController
+@implementation HHSummarizeViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];
@@ -28,8 +28,8 @@
 - (void)config {
     self.title = @"工具总结";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.titlesArry = @[@"RAC使用",@"RAC总结",@"文件管理",@"iOS内购"];
-    self.viewControllers = @[@"HHAdminViewController",
+    self.titlesArry = @[@"RAC基本使用",@"RAC总结",@"文件管理",@"iOS内购"];
+    self.viewControllers = @[@"HHRacBaseViewController",
                              @"HHRacListViewController",
                              @"HHFileManagerViewController",
                              @"HHAppPurchaseViewController"];

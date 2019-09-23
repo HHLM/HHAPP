@@ -1,16 +1,16 @@
 //
-//  HHAdminViewController.h
+//  HHSummarizeViewController.h
 //  HHAPP
 //
-//  Created by Now on 2019/5/1.
+//  Created by Now on 2019/9/18.
 //  Copyright © 2019 任他疾风起. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HHAdminViewController : BaseViewController
+@interface HHSummarizeViewController : BaseViewController
 
 @end
 

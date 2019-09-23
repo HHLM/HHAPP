@@ -1,27 +1,55 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - HHLKit (0.0.1)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
   - ReactiveObjC (3.0.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - AFNetworking
   - HHLKit (from `../HHLKit/`)
   - Masonry
+  - MBProgressHUD
   - ReactiveObjC (~> 3.0.0)
+  - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AFNetworking
     - Masonry
+    - MBProgressHUD
     - ReactiveObjC
+    - YYKit
 
 EXTERNAL SOURCES:
   HHLKit:
     :path: "../HHLKit/"
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   HHLKit: 7e01927027b42f5569fd85fec15bef086f753feb
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0e76dfc014cd9152823a6e26016a203b04a2cc0b
+PODFILE CHECKSUM: d0f3ba60c333f11f3bf75eef2079f49b5fc53122
 
 COCOAPODS: 1.6.1

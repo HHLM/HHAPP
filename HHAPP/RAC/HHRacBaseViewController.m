@@ -1,23 +1,23 @@
 //
-//  HHAdminViewController.m
+//  HHRacBaseViewController.m
 //  HHAPP
 //
 //  Created by Now on 2019/5/1.
 //  Copyright © 2019 任他疾风起. All rights reserved.
 //
 
-#import "HHAdminViewController.h"
+#import "HHRacBaseViewController.h"
 #import "HHAdminViewModel.h"
 #import "HHRacSubjectViewController.h"
 #import <RACReturnSignal.h>
-@interface HHAdminViewController ()<UITextFieldDelegate>
+@interface HHRacBaseViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) HHAdminViewModel *vm;
 @property (nonatomic, strong) UITextField *nameTF;
 @property (nonatomic, strong) UIButton *nameBtn;
 @end
 
-@implementation HHAdminViewController
+@implementation HHRacBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,16 +1,16 @@
 //
-//  HHRacViewController.h
+//  HHRacBaseViewController.h
 //  HHAPP
 //
-//  Created by Now on 2019/9/18.
+//  Created by Now on 2019/5/1.
 //  Copyright © 2019 任他疾风起. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HHRacViewController : BaseViewController
+@interface HHRacBaseViewController : BaseViewController
 
 @end
 

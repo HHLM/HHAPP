@@ -7,7 +7,7 @@
 //
 
 #import "HHRacListViewController.h"
-#import "HHAdminViewController.h"
+#import "HHRacBaseViewController.h"
 #import "HHRacTableView.h"
 #import <RACReturnSignal.h>
 #import "HHRacModel.h"

@@ -5,6 +5,9 @@ target 'HHAPP' do
 
 pod 'HHLKit',:path => '../HHLKit/'
 pod 'Masonry'
+pod 'MBProgressHUD'
+pod 'AFNetworking'
+pod 'YYKit'
 pod 'ReactiveObjC', '~> 3.0.0'
 
 # pod 'helloXXXPod' :path => '../'
