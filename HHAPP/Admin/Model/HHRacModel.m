@@ -9,6 +9,7 @@
 #import "HHRacModel.h"
 
 @implementation HHRacModel
+
 - (instancetype)init
 {
     self = [super init];

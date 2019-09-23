@@ -11,7 +11,8 @@
 #import "HHRacSubjectViewController.h"
 #import <RACReturnSignal.h>
 @interface HHRacBaseViewController ()<UITextFieldDelegate>
-
+@property (nonatomic, strong) NSArray *titlesArray;
+@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) HHAdminViewModel *vm;
 @property (nonatomic, strong) UITextField *nameTF;
 @property (nonatomic, strong) UIButton *nameBtn;

@@ -8,6 +8,7 @@
 
 #import "HHRacListViewController.h"
 #import "HHRacBaseViewController.h"
+#import "HHRacSignalViewController.h"
 #import "HHRacTableView.h"
 #import <RACReturnSignal.h>
 #import "HHRacModel.h"
@@ -29,13 +30,14 @@
     RACSubject *subject = [RACSubject subject];
     self.tableView.subject = subject;
     @weakify(self);
-    [subject subscribeNext:^(NSNumber *x) {
+    [subject subscribeNext:^(NSIndexPath *indexPath) {
         @strongify(self);
-        [self didSelectIndex:x.integerValue];
+        [self didSelectSection:indexPath.section atIndex:indexPath.row];
     }];
     [self initViewModel];
 }
 - (void)config {
+    
     self.title = @"RAC总结";
     self.view.backgroundColor = [UIColor whiteColor];
     self.infoDict = @{@"微软":@"C#",@"苹果":@"Objective-C",@"谷歌":@"Flutter"};
@@ -48,7 +50,8 @@
                             @"RACReplaySubject",
                             @"RACTuble",
                             @"RACCommand",
-                            @"RACMulticastConnection"]];
+                            @"RACMulticastConnection"],
+                          @[@"RAC使用"]];
 }
 
 - (void)initViewModel {
@@ -71,21 +74,44 @@
     
 }
 
-- (void)didSelectIndex:(NSInteger)index {
-    self.vm.name = @(index).description;
-    if (index == 0) {
-        [self creatSignal];
-    } else if (index == 1) {
-        [self creatSubject];
-    } else if (index == 2) {
-        [self creatReplaySubject];
-    } else if (index == 3) {
-        [self rac_RACTuple];
-    } else if (index == 4) {
-        [self creatRACCommand];
-    } else if (index == 5) {
-        [self creatRACMulticastConnection];
+- (void)didSelectSection:(NSInteger)section atIndex:(NSInteger)index {
+    
+    if (section == 0) {
+        self.vm.name = @(index).description;
+        if (index == 0) {
+            [self creatSignal];
+        } else if (index == 1) {
+            [self creatSubject];
+        } else if (index == 2) {
+            [self creatReplaySubject];
+        } else if (index == 3) {
+            [self rac_RACTuple];
+        } else if (index == 4) {
+            [self creatRACCommand];
+        } else if (index == 5) {
+            [self creatRACMulticastConnection];
+        }
+    }else {
+        if (index == 0) {
+            [self creatRacUse];
+        } else if (index == 1) {
+            [self creatSubject];
+        } else if (index == 2) {
+            [self creatReplaySubject];
+        } else if (index == 3) {
+            [self rac_RACTuple];
+        } else if (index == 4) {
+            [self creatRACCommand];
+        } else if (index == 5) {
+            [self creatRACMulticastConnection];
+        }
     }
+    
+}
+
+- (void)creatRacUse {
+    HHRacSignalViewController *vc = [HHRacSignalViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)creatRACCommand {
@@ -148,6 +174,8 @@
     self.dataArray =  [[self.dataArray.rac_sequence map:^id _Nullable(id  _Nullable value) {
         return @"HHH";
     }] array];
+    
+    
     
     NSLog(@"%@",self.dataArray);
 }

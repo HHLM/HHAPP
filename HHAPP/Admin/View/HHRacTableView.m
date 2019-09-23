@@ -70,7 +70,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.subject) {
-        [self.subject sendNext:@(indexPath.row)];
+        [self.subject sendNext:indexPath];
     }
 }
 @end

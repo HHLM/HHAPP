@@ -63,7 +63,6 @@
                   moduleName = "HHAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Like/View/HHLikeHeaderView.m"
-                  timestampString = "590653753.242486"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -79,7 +78,6 @@
                   moduleName = "HHAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Like/View/HHLikeHeaderView.m"
-                  timestampString = "590653753.245867"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "46"
@@ -160,57 +158,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E22152F3-67D4-4722-83F8-169EE778102F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HHAPP/Admin/Model/HHRacModel.m"
-            timestampString = "590503285.6277061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-creatSignalWithInput:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E22152F3-67D4-4722-83F8-169EE778102F - 5989fbb65d5b83f1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HHRacModel creatSignalWithInput:]"
-                  moduleName = "HHAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Admin/Model/HHRacModel.m"
-                  timestampString = "590653753.347414"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "43">
-               </Location>
-               <Location
-                  uuid = "E22152F3-67D4-4722-83F8-169EE778102F - f474ce0d10794dcd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__35-[HHRacModel creatSignalWithInput:]_block_invoke"
-                  moduleName = "HHAPP"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/now/GitHub/HHLM/HHAPP/HHAPP/Admin/Model/HHRacModel.m"
-                  timestampString = "590653753.351092"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EF576069-DDFC-4908-961F-5961C7958188"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -222,23 +169,6 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E389E774-5E6B-459A-8D5F-B0CB1E28DEA9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HHAPP/HHFileManager/HHFileManagerViewController.m"
-            timestampString = "590657711.1010129"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-saveFile"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -257,6 +187,36 @@
             endingLineNumber = "274"
             landmarkName = "+getFileNameFromFolderPath:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92139D3A-C9B5-48B4-B97D-F39E8347286A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HHAPP/RAC/HHRacListViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-creatRacUse"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6360E0B-9017-444D-BC81-96A9B3DD8C1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HHAPP/RAC/HHRacSignalViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "638"
+            endingLineNumber = "638">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

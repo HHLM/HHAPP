@@ -32,12 +32,12 @@
     RACSubject *subject = [RACSubject subject];
     self.tableView.subject = subject;
     @weakify(self);
-    [subject subscribeNext:^(NSNumber * x) {
+    [subject subscribeNext:^(NSIndexPath * x) {
         @strongify(self);
-        [self didSelectIndex:x.integerValue];
+        [self didSelectdidSelectSection:x.section atIndex:x.row];
     }];
 }
-- (void)didSelectIndex:(NSInteger)index {
+- (void)didSelectdidSelectSection:(NSInteger)section atIndex:(NSInteger)index {
     NSLog(@"点击了：%ld",index);
     if (index == 0) {
         [self creatFolder];

@@ -27,12 +27,12 @@
     RACSubject *subject = [RACSubject subject];
     self.tableView.subject = subject;
     @weakify(self);
-    [subject subscribeNext:^(NSNumber * x) {
+    [subject subscribeNext:^(NSIndexPath * x) {
         @strongify(self);
-        [self didSelectIndex:x.integerValue];
+        [self didSelectSection:x.section atIndex:x.row];
     }];
 }
-- (void)didSelectIndex:(NSInteger)index {
+- (void)didSelectSection:(NSInteger)section atIndex:(NSInteger)index {
     [[HHAppPurchaseTool shareInstall] starPurchase];
     [[HHAppPurchaseTool shareInstall] hh_requestProducts:@[@"com.hishake.addStore"]];
     
