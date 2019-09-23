@@ -11,6 +11,7 @@
 @interface HHNewsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *table;
+
 @end
 
 @implementation HHNewsViewController
@@ -43,7 +44,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *url = [NSString stringWithFormat:@"HHLZXYRoutes://push/HHFileManagerViewController?name=%@",@"fromNextVC"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]
+                                      options:@{UIApplicationOpenURLOptionsSourceApplicationKey : @YES}
+                            completionHandler:nil];
 }
 #pragma mark creat UI
 - (UITableView *)table {
