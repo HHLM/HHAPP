@@ -34,6 +34,7 @@
     
     UIViewController *vc = self.viewControllers.lastObject;
     SEL selector = NSSelectorFromString(@"hh_popViewController");
+    //判断该VC能否响应hh_popViewController这个方法  能就调用这个方法
     if ([vc respondsToSelector:selector]) {
         IMP imp = [vc methodForSelector:selector];
         void (*func)(id, SEL) = (void *)imp;
