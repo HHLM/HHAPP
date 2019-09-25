@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HHFileManager : NSObject
 
 + (instancetype)shareInstall;
-
-+ (NSString *)homeFilePath;             // 程序主目录，可见子目录(3个):Documents、Library、tmp
 /** 程序目录 */
++ (NSString *)homeFilePath;             // 程序主目录，可见子目录(3个):Documents、Library、tmp
+
 + (NSString *)appFilePath;              // 程序目录，不能存任何东西
 /** 沙盒路径 */
 + (NSString *)documentsFilePath;        // 文档目录，需要ITUNES同步备份的数据存这里，可存放用户数据
@@ -225,7 +225,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)formatSize:(unsigned long long)fileSize ;
 
+#pragma mark 测试一下
 +  (void)test;
+
 @end
 
 NS_ASSUME_NONNULL_END

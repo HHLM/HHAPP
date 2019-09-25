@@ -267,12 +267,18 @@
     NSString *path = folderPath;
     if (path && path.length > 0) {
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            //获取文件夹下文件
+#if 0
             NSEnumerator *childEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:path] objectEnumerator];
             NSMutableArray *fileNameArray = [NSMutableArray array];
             NSString *fileName = nil;
             while ((fileName =  [childEnumerator nextObject]) != nil)
                 [fileNameArray addObject:fileName];
             return fileNameArray;
+#else
+            NSArray *array = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+#endif
+            return array;
         }else {
             return @[];
         }
