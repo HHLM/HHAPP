@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 //*!!!:2、Project -> Capabilities -> in-App Purchase -> YES 上线时候打开要不然会没有商品
 
+//*!!!:3、内购产品要添加图片提交审核，要不然线上app没有内购产品
+
 /**
  内购步骤：
  0 、检测本地时候有未校验的receipt  遍历取到后 走下面 ----> 4步骤
