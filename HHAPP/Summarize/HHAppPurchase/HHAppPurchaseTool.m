@@ -50,6 +50,7 @@ static NSString * const fileNameKey  = @"fileName_key";
 }
 - (void)starPurchase {
     [self addTransactionObserver];
+    [self checkIAPFiles];
 }
 - (void)stoPurchase {
     [self removeTransactionObserver];

@@ -98,6 +98,8 @@ typedef NS_ENUM(NSInteger,HHAppPurchasePayStatue) {
 
 /** 删除本地验签 receiptName文件名 */
 - (void)remevReceipt:(NSString *)receiptName;
+
+- (void)checkIAPFiles;
 @end
 
 NS_ASSUME_NONNULL_END

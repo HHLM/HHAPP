@@ -21,6 +21,7 @@
 - (void)config {
     self.title = @"APPLE 内购";
     [HHAppPurchaseTool shareInstall].delegate = self;
+    [[HHAppPurchaseTool shareInstall] starPurchase];
     //添加tableView
     [self addDataView];
     self.tableView.titlesArray = @[@[@"购买套餐一",@"购买套餐二"],@[@"查询漏单"]];
@@ -33,9 +34,15 @@
     }];
 }
 - (void)didSelectSection:(NSInteger)section atIndex:(NSInteger)index {
-    [[HHAppPurchaseTool shareInstall] starPurchase];
-    [[HHAppPurchaseTool shareInstall] hh_requestProducts:@[@"com.hishake.addStore"]];
-    
+    if (section == 0) {
+        if (index == 0) {
+            [[HHAppPurchaseTool shareInstall] hh_requestProducts:@[@"com.hishake.addStore2998"]];
+        }else {
+            [[HHAppPurchaseTool shareInstall] hh_requestProducts:@[@"com.hishake.addstore1398"]];
+        }
+    }else {
+        [[HHAppPurchaseTool shareInstall] checkIAPFiles];
+    }
 }
 
 - (void)failedWithErrorCode:(NSInteger)errorCode {
@@ -45,7 +52,7 @@
     if (productIds.count < 1) {
         return;
     }
-    [[HHAppPurchaseTool shareInstall] hh_purchaseProductWihtProductId:@"com.hishake.addStore"];
+    [[HHAppPurchaseTool shareInstall] hh_purchaseProductWihtProductId:@"com.hishake.addStore2998"];
 }
 - (void)appPurchaseSuccessWithInfo:(NSDictionary *)info {
     
