@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */; };
+		941E3D17235054BD0064AD64 /* HHLikeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E3D16235054BD0064AD64 /* HHLikeTableView.m */; };
 		9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427136423053EB0006DD42D /* HHAdminViewModel.m */; };
 		94595F3622F038210004C8BA /* BadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94595F3522F038200004C8BA /* BadgeButton.m */; };
 		948F1A472331875100FF3AAA /* HHSummarizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A462331875100FF3AAA /* HHSummarizeViewController.m */; };
@@ -54,6 +55,8 @@
 		749B655AB220B44DC206B9F2 /* Pods-HHAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHAPP.release.xcconfig"; path = "Target Support Files/Pods-HHAPP/Pods-HHAPP.release.xcconfig"; sourceTree = "<group>"; };
 		9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeHeaderView.h; sourceTree = "<group>"; };
 		9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeHeaderView.m; sourceTree = "<group>"; };
+		941E3D15235054BD0064AD64 /* HHLikeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeTableView.h; sourceTree = "<group>"; };
+		941E3D16235054BD0064AD64 /* HHLikeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeTableView.m; sourceTree = "<group>"; };
 		9427136323053EB0006DD42D /* HHAdminViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAdminViewModel.h; sourceTree = "<group>"; };
 		9427136423053EB0006DD42D /* HHAdminViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAdminViewModel.m; sourceTree = "<group>"; };
 		94595F3422F038200004C8BA /* BadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeButton.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */,
 				9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */,
+				941E3D15235054BD0064AD64 /* HHLikeTableView.h */,
+				941E3D16235054BD0064AD64 /* HHLikeTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -618,6 +623,7 @@
 				94ACF68522793F93002EE971 /* main.m in Sources */,
 				94E13C9E2338B19900E34BDF /* MBProgressHUD+EXT.m in Sources */,
 				9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */,
+				941E3D17235054BD0064AD64 /* HHLikeTableView.m in Sources */,
 				94595F3622F038210004C8BA /* BadgeButton.m in Sources */,
 				94ACF69B227946AE002EE971 /* BaseModel.m in Sources */,
 				94BC5F452334B93800DE0908 /* HHAppPurchaseTool.m in Sources */,
