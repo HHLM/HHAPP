@@ -11,6 +11,7 @@
 		941E3D17235054BD0064AD64 /* HHLikeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E3D16235054BD0064AD64 /* HHLikeTableView.m */; };
 		9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427136423053EB0006DD42D /* HHAdminViewModel.m */; };
 		94595F3622F038210004C8BA /* BadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94595F3522F038200004C8BA /* BadgeButton.m */; };
+		94715818235F17CE00E1E410 /* UIView+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94715817235F17CE00E1E410 /* UIView+HHEXT.m */; };
 		948F1A472331875100FF3AAA /* HHSummarizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A462331875100FF3AAA /* HHSummarizeViewController.m */; };
 		948F1A4A233226BD00FF3AAA /* HHRacSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A49233226BD00FF3AAA /* HHRacSubjectViewController.m */; };
 		948F1A4D23322D2400FF3AAA /* HHRacListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A4C23322D2400FF3AAA /* HHRacListViewController.m */; };
@@ -61,6 +62,8 @@
 		9427136423053EB0006DD42D /* HHAdminViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAdminViewModel.m; sourceTree = "<group>"; };
 		94595F3422F038200004C8BA /* BadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeButton.h; sourceTree = "<group>"; };
 		94595F3522F038200004C8BA /* BadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeButton.m; sourceTree = "<group>"; };
+		94715816235F17CE00E1E410 /* UIView+HHEXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HHEXT.h"; sourceTree = "<group>"; };
+		94715817235F17CE00E1E410 /* UIView+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHEXT.m"; sourceTree = "<group>"; };
 		948F1A452331875100FF3AAA /* HHSummarizeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSummarizeViewController.h; sourceTree = "<group>"; };
 		948F1A462331875100FF3AAA /* HHSummarizeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSummarizeViewController.m; sourceTree = "<group>"; };
 		948F1A48233226BD00FF3AAA /* HHRacSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHRacSubjectViewController.h; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				94E13CAB2338C88400E34BDF /* UILabel+HHEXT.m */,
 				94E13CBB2338D2D200E34BDF /* UIImage+HHEXT.h */,
 				94E13CBC2338D2D200E34BDF /* UIImage+HHEXT.m */,
+				94715816235F17CE00E1E410 /* UIView+HHEXT.h */,
+				94715817235F17CE00E1E410 /* UIView+HHEXT.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				94ACF69E227946BC002EE971 /* BaseViewModel.m in Sources */,
 				94BC5F422334B27300DE0908 /* HHAppPurchaseViewController.m in Sources */,
 				94ACF6982279469D002EE971 /* BaseViewController.m in Sources */,
+				94715818235F17CE00E1E410 /* UIView+HHEXT.m in Sources */,
 				94ACF6BB22794A16002EE971 /* HHRacBaseViewController.m in Sources */,
 				948F1A472331875100FF3AAA /* HHSummarizeViewController.m in Sources */,
 				94F4825322E5BA70008A7C05 /* UIView+HHExt.m in Sources */,
