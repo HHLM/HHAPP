@@ -17,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)getLabelHeightByWidth:(CGFloat)width Title:(NSString *)title font:(UIFont *)font;
 
 /**  设置圆角  */
-- (void)rounded:(CGFloat)cornerRadius;
+- (void)round:(CGFloat)cornerRadius;
 
 /**  设置圆角和边框  */
-- (void)rounded:(CGFloat)cornerRadius width:(CGFloat)borderWidth color:(UIColor *)borderColor;
+- (void)round:(CGFloat)cornerRadius width:(CGFloat)borderWidth color:(UIColor *)borderColor;
 
 /**  设置边框  */
 - (void)border:(CGFloat)borderWidth color:(UIColor *)borderColor;
@@ -35,11 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -- CornerRadius
 @interface UIView (CornerRadius)
-
-@end
-
-#pragma mark -- load Nib
-@interface UIView (ZZExt)
 
 @end
 

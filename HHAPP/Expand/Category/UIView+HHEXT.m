@@ -40,15 +40,15 @@
     return height;
 }
 
-- (void)rounded:(CGFloat)cornerRadius {
-    [self rounded:cornerRadius width:0 color:nil];
+- (void)round:(CGFloat)cornerRadius {
+    [self round:cornerRadius width:0 color:[UIColor clearColor]];
 }
 
 - (void)border:(CGFloat)borderWidth color:(UIColor *)borderColor {
-    [self rounded:0 width:borderWidth color:borderColor];
+    [self round:0 width:borderWidth color:borderColor];
 }
 
-- (void)rounded:(CGFloat)cornerRadius width:(CGFloat)borderWidth color:(UIColor *)borderColor {
+- (void)round:(CGFloat)cornerRadius width:(CGFloat)borderWidth color:(UIColor *)borderColor {
     self.layer.cornerRadius = cornerRadius;
     self.layer.borderWidth = borderWidth;
     self.layer.borderColor = [borderColor CGColor];
@@ -74,9 +74,6 @@
 
 @end
 
-@implementation UIView (ZZExt)
-
-@end
 #pragma mark -- Register
 @implementation UIView (Register)
 
@@ -104,7 +101,6 @@
     for (id curObj in nibViews) {
         if ([curObj isKindOfClass:[self class]]) {
             curMainView = curObj;
-
             break;
         }
     }
