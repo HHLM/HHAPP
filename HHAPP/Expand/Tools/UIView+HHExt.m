@@ -10,19 +10,19 @@
 
 @implementation UIView (HHExt)
 - (void)addBadgeValue:(NSString *)badgeValue {
-        [self removeBadgeValue];
+    [self removeBadgeValue];
 
-        
+    
 
-        UITabBar *tabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
+    UITabBar *tabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
 
-        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"" image:nil tag:0];
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"" image:nil tag:0];
 
-        item.badgeValue = badgeValue;
+    item.badgeValue = badgeValue;
 
-        NSArray *array = [[NSArray alloc] initWithObjects:item, nil];
+    NSArray *array = [[NSArray alloc] initWithObjects:item, nil];
 
-        tabBar.items = array;
+    tabBar.items = array;
 
      
 
@@ -64,18 +64,18 @@
 - (void)removeBadgeValue
 
 {
-    for (UIView *subview in self.subviews) {
-            NSString *strClassName = [NSString stringWithUTF8String:object_getClassName(subview)];
+        for (UIView *subview in self.subviews) {
+                NSString *strClassName = [NSString stringWithUTF8String:object_getClassName(subview)];
 
-            if ([strClassName isEqualToString:@"UITabBarButtonBadge"] ||
+                if ([strClassName isEqualToString:@"UITabBarButtonBadge"] ||
 
-                            [strClassName isEqualToString:@"_UIBadgeView"]) {
-                    [subview removeFromSuperview];
+                                [strClassName isEqualToString:@"_UIBadgeView"]) {
+                        [subview removeFromSuperview];
 
-                    break;
+                        break;
 
-               
-    }
+                   
+        }
 
            
     }
