@@ -26,17 +26,27 @@
     NSArray *arr =  [[array.rac_sequence map:^id _Nullable (id _Nullable value) {
         return [NSString stringWithFormat:@"chain:%@", value];
     }] array];
-    
-    NSLog(@"map后的数组：%@",arr);
+
+    NSLog(@"map后的数组：%@", arr);
 
     NSDictionary *dict = @{ @"name": @"小米", @"price": @"¥999元" };
 
-    [dict.rac_sequence.signal subscribeNext:^(RACTuple * _Nullable x) {
+    [dict.rac_sequence.signal subscribeNext:^(RACTuple *_Nullable x) {
         NSLog(@"%@---%@", x, [NSThread currentThread]);
-        RACTupleUnpack(NSString *key,id value) = x;
-        NSLog(@"%@----%@",key,value);
+        RACTupleUnpack(NSString * key, id value) = x;
+        NSLog(@"%@----%@", key, value);
     } completed:^{
         NSLog(@"遍历字典完成！！！");
+    }];
+    
+    //遍历字典的key
+    [dict.rac_keySequence.signal subscribeNext:^(id _Nullable x) {
+        //子线程
+    }];
+    
+    //遍历字典的value
+    [dict.rac_valueSequence.signal subscribeNext:^(id _Nullable x) {
+        //子线程
     }];
 }
 

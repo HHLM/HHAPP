@@ -71,15 +71,22 @@
     [[self rac_valuesForKeyPath:@keypath(self, count) observer:self] subscribeNext:^(id _Nullable x) {
         NSLog(@"KVO1：%@", x);
     }];
+    
     [[self rac_valuesAndChangesForKeyPath:@"count" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld observer:self] subscribeNext:^(RACTwoTuple<id, NSDictionary *> *_Nullable x) {
         NSLog(@"KVO2：%@", x);
     }];
+    
     [RACObserve(self, count) subscribeNext:^(id _Nullable x) {
         NSLog(@"KVO3：%@", x);
     }];
 
     //数据绑定
     RAC(self.titleLab, text) = self.tf.rac_textSignal;
+    
+    //遵循协议
+    [[self.tf rac_signalForSelector:@selector(textFieldDidBeginEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
+        NSLog(@"协议开始编辑：%@",x);
+    }];;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

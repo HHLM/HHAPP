@@ -14,6 +14,9 @@
 		941E3D17235054BD0064AD64 /* HHLikeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E3D16235054BD0064AD64 /* HHLikeTableView.m */; };
 		9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427136423053EB0006DD42D /* HHAdminViewModel.m */; };
 		94595F3622F038210004C8BA /* BadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94595F3522F038200004C8BA /* BadgeButton.m */; };
+		9465CF0D2487FF4E00676979 /* RACMergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465CF0C2487FF4E00676979 /* RACMergeViewController.m */; };
+		9465CF102487FF7100676979 /* RACZipWithViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465CF0F2487FF7100676979 /* RACZipWithViewController.m */; };
+		9465CF132487FF8800676979 /* RACCombineLatestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9465CF122487FF8800676979 /* RACCombineLatestViewController.m */; };
 		94715818235F17CE00E1E410 /* UIView+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94715817235F17CE00E1E410 /* UIView+HHEXT.m */; };
 		94854473247BE518002D221E /* RACSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94854472247BE518002D221E /* RACSignalViewController.m */; };
 		94854476247BEBB2002D221E /* RACSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94854475247BEBB2002D221E /* RACSubjectViewController.m */; };
@@ -40,6 +43,8 @@
 		94ACF6C422794A52002EE971 /* HHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C322794A52002EE971 /* HHVideoViewController.m */; };
 		94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C622794B47002EE971 /* HHNavigationController.m */; };
 		94ACF6CA22794E78002EE971 /* HHLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C922794E78002EE971 /* HHLikeViewController.m */; };
+		94B227592487993C00BA5ADC /* RACConcatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B227582487993C00BA5ADC /* RACConcatViewController.m */; };
+		94B2275C2487996A00BA5ADC /* RACThenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B2275B2487996A00BA5ADC /* RACThenViewController.m */; };
 		94B6F9A5247C1175008F06CB /* RACMulticastConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */; };
 		94B6F9A8247C1447008F06CB /* RACSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A7247C1447008F06CB /* RACSequenceViewController.m */; };
 		94B6F9AB247C1796008F06CB /* RACCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9AA247C1796008F06CB /* RACCommandViewController.m */; };
@@ -79,6 +84,12 @@
 		9427136423053EB0006DD42D /* HHAdminViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAdminViewModel.m; sourceTree = "<group>"; };
 		94595F3422F038200004C8BA /* BadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeButton.h; sourceTree = "<group>"; };
 		94595F3522F038200004C8BA /* BadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeButton.m; sourceTree = "<group>"; };
+		9465CF0B2487FF4E00676979 /* RACMergeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACMergeViewController.h; sourceTree = "<group>"; };
+		9465CF0C2487FF4E00676979 /* RACMergeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMergeViewController.m; sourceTree = "<group>"; };
+		9465CF0E2487FF7100676979 /* RACZipWithViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACZipWithViewController.h; sourceTree = "<group>"; };
+		9465CF0F2487FF7100676979 /* RACZipWithViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACZipWithViewController.m; sourceTree = "<group>"; };
+		9465CF112487FF8800676979 /* RACCombineLatestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACCombineLatestViewController.h; sourceTree = "<group>"; };
+		9465CF122487FF8800676979 /* RACCombineLatestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACCombineLatestViewController.m; sourceTree = "<group>"; };
 		94715816235F17CE00E1E410 /* UIView+HHEXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HHEXT.h"; sourceTree = "<group>"; };
 		94715817235F17CE00E1E410 /* UIView+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHEXT.m"; sourceTree = "<group>"; };
 		94854471247BE518002D221E /* RACSignalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSignalViewController.h; sourceTree = "<group>"; };
@@ -130,6 +141,10 @@
 		94ACF6C622794B47002EE971 /* HHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNavigationController.m; sourceTree = "<group>"; };
 		94ACF6C822794E78002EE971 /* HHLikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeViewController.h; sourceTree = "<group>"; };
 		94ACF6C922794E78002EE971 /* HHLikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeViewController.m; sourceTree = "<group>"; };
+		94B227572487993C00BA5ADC /* RACConcatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACConcatViewController.h; sourceTree = "<group>"; };
+		94B227582487993C00BA5ADC /* RACConcatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACConcatViewController.m; sourceTree = "<group>"; };
+		94B2275A2487996A00BA5ADC /* RACThenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACThenViewController.h; sourceTree = "<group>"; };
+		94B2275B2487996A00BA5ADC /* RACThenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACThenViewController.m; sourceTree = "<group>"; };
 		94B6F9A3247C1175008F06CB /* RACMulticastConnectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACMulticastConnectionViewController.h; sourceTree = "<group>"; };
 		94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMulticastConnectionViewController.m; sourceTree = "<group>"; };
 		94B6F9A6247C1447008F06CB /* RACSequenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSequenceViewController.h; sourceTree = "<group>"; };
@@ -397,7 +412,6 @@
 			children = (
 				94ACF6BF22794A43002EE971 /* HHNewsViewController.h */,
 				94ACF6C022794A43002EE971 /* HHNewsViewController.m */,
-				940FED27247E07F20087D2F1 /* RAC基本使用 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -459,7 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				948F1A452331875100FF3AAA /* HHSummarizeViewController.h */,
-				948F1A462331875100FF3AAA /* HHSummarizeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -480,6 +493,23 @@
 				948F1A52233232A000FF3AAA /* HHRacTableView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		94B22756248792E500BA5ADC /* RAC高级用法 */ = {
+			isa = PBXGroup;
+			children = (
+				94B227572487993C00BA5ADC /* RACConcatViewController.h */,
+				94B227582487993C00BA5ADC /* RACConcatViewController.m */,
+				94B2275A2487996A00BA5ADC /* RACThenViewController.h */,
+				94B2275B2487996A00BA5ADC /* RACThenViewController.m */,
+				9465CF0B2487FF4E00676979 /* RACMergeViewController.h */,
+				9465CF0C2487FF4E00676979 /* RACMergeViewController.m */,
+				9465CF0E2487FF7100676979 /* RACZipWithViewController.h */,
+				9465CF0F2487FF7100676979 /* RACZipWithViewController.m */,
+				9465CF112487FF8800676979 /* RACCombineLatestViewController.h */,
+				9465CF122487FF8800676979 /* RACCombineLatestViewController.m */,
+			);
+			path = "RAC高级用法";
 			sourceTree = "<group>";
 		};
 		94BC5F3B233495FB00DE0908 /* HHFileManager */ = {
@@ -507,6 +537,9 @@
 		94E13C9123385B4F00E34BDF /* HHRAC */ = {
 			isa = PBXGroup;
 			children = (
+				940FED27247E07F20087D2F1 /* RAC基本使用 */,
+				94B22756248792E500BA5ADC /* RAC高级用法 */,
+				948F1A462331875100FF3AAA /* HHSummarizeViewController.m */,
 				94ACF6B922794A16002EE971 /* HHRacBaseViewController.h */,
 				94ACF6BA22794A16002EE971 /* HHRacBaseViewController.m */,
 				948F1A4B23322D2400FF3AAA /* HHRacListViewController.h */,
@@ -679,7 +712,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9465CF132487FF8800676979 /* RACCombineLatestViewController.m in Sources */,
 				94ACF69E227946BC002EE971 /* BaseViewModel.m in Sources */,
+				9465CF102487FF7100676979 /* RACZipWithViewController.m in Sources */,
 				94BC5F422334B27300DE0908 /* HHAppPurchaseViewController.m in Sources */,
 				94ACF6982279469D002EE971 /* BaseViewController.m in Sources */,
 				94715818235F17CE00E1E410 /* UIView+HHEXT.m in Sources */,
@@ -705,8 +740,10 @@
 				9413A9A8247EC1080092326B /* HHPerson.m in Sources */,
 				9413A9AB247EC1160092326B /* HHStuden.m in Sources */,
 				948F1A562332384F00FF3AAA /* HHRacModel.m in Sources */,
+				9465CF0D2487FF4E00676979 /* RACMergeViewController.m in Sources */,
 				948F1A5023322DF900FF3AAA /* BaseTableViewCell.m in Sources */,
 				94ACF67722793F92002EE971 /* AppDelegate.m in Sources */,
+				94B2275C2487996A00BA5ADC /* RACThenViewController.m in Sources */,
 				94B6F9AB247C1796008F06CB /* RACCommandViewController.m in Sources */,
 				94E13CA92338C84000E34BDF /* UIColor+HHEXT.m in Sources */,
 				94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */,
@@ -715,6 +752,7 @@
 				94E13CA52338C6F800E34BDF /* HHColorTool.m in Sources */,
 				94ACF6C122794A43002EE971 /* HHNewsViewController.m in Sources */,
 				94E13CBA2338D19A00E34BDF /* HHConstFile.m in Sources */,
+				94B227592487993C00BA5ADC /* RACConcatViewController.m in Sources */,
 				94E13CBD2338D2D200E34BDF /* UIImage+HHEXT.m in Sources */,
 				94ACF6C422794A52002EE971 /* HHVideoViewController.m in Sources */,
 				94B6F9AE247C341C008F06CB /* RACSelectorViewController.m in Sources */,

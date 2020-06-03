@@ -61,9 +61,12 @@
     [connection.signal subscribeNext:^(id  _Nullable x) {
         
     }];
+    
     [connection.signal subscribeNext:^(id  _Nullable x) {
         
     }];
+    
+    //必须在订阅之后连接
     [connection connect];
     
 #endif
