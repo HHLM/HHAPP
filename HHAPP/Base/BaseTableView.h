@@ -10,8 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableView : NSObject
-
+@interface BaseTableView : UITableView
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) RACSubject *subject;
 @end
 
 NS_ASSUME_NONNULL_END

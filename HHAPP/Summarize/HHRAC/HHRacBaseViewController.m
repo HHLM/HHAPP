@@ -26,7 +26,6 @@
     [self.view addSubview:self.nameBtn];
     self.nameTF.delegate = self;
 
-  
 //    [self hh_rac];
 //    [self Rac_KVO];
 //    [self Rac_NSNotification];
@@ -41,15 +40,17 @@
     [self creatSubject];
     [self creatReplaySubject];
 }
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     HHRacSubjectViewController *vc = [HHRacSubjectViewController new];
     [self.navigationController pushViewController:vc animated:YES];
     RACSubject *subject = [RACSubject subject];
     vc.subject = subject;
-    [subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"获取到的信号：%@",x);
+    [subject subscribeNext:^(id _Nullable x) {
+        NSLog(@"获取到的信号：%@", x);
     }];
 }
+
 #pragma mark MVVM
 - (void)crearMVVM {
     /**
@@ -60,8 +61,8 @@
     self.vm = [[HHAdminViewModel alloc] init];
     [self.vm initWithBlock:^(NSArray *_Nonnull array) {
         NSLog(@"%@", array);
-        [array.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
-            NSLog(@"这是什么：%@--%@",x,[NSThread currentThread]);
+        [array.rac_sequence.signal subscribeNext:^(id _Nullable x) {
+            NSLog(@"这是什么：%@--%@", x, [NSThread currentThread]);
         }];
         self.vm.dataArray = [array copy];
     }];
@@ -72,28 +73,27 @@
     //*!!!:应用场景
     //1、创建一个信号
     NSLog(@"1");
-    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
         // 每当订阅者订阅信号，就会调用block
         //3、发送一个信号
         NSLog(@"3");
         [subscriber sendNext:@"这是发送的一个信号"];
         //5、不在需要发送数据，发送完成  内部就会自动取消订阅信号
-         NSLog(@"5");
+        NSLog(@"5");
         [subscriber sendCompleted];
-         NSLog(@"6");
+        NSLog(@"6");
         //6、信号被取消：1、主动取消 2、主动取消会调用block
         return [RACDisposable disposableWithBlock:^{
             NSLog(@"7");
             NSLog(@"取消订阅信号");
         }];
     }];
-    
-     NSLog(@"2");
+
+    NSLog(@"2");
     //2、MARK:订阅一个信号  只要订阅信号，就会返回一个取消订阅信号的类
-    [signal subscribeNext:^(id  _Nullable x) {
+    [signal subscribeNext:^(id _Nullable x) {
         //4、接受到信号
-         NSLog(@"4");
+        NSLog(@"4");
     }];
 }
 
@@ -101,49 +101,49 @@
     //*!!!:应用场景 代替代理 回调数据 先订阅后发送消息
     RACSubject *subject = [RACSubject subject];
     //订阅信号
-    [subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第一个订阅：%@",x);
+    [subject subscribeNext:^(id _Nullable x) {
+        NSLog(@"第一个订阅：%@", x);
     }];
     //发送信号
     [subject sendNext:@"发送了一个信号1~~~"];
     [subject sendNext:@"发送了一个信号2~~~"];
-    [subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第二个订阅：%@",x);
+    [subject subscribeNext:^(id _Nullable x) {
+        NSLog(@"第二个订阅：%@", x);
     }];
 }
+
 - (void)creatReplaySubject {
     //*!!!:应用场景 重复提供信号
     RACReplaySubject *subject = [RACReplaySubject subject];
     //订阅信号
-    [subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第一个Replay订阅：%@",x);
+    [subject subscribeNext:^(id _Nullable x) {
+        NSLog(@"第一个Replay订阅：%@", x);
     }];
     //发送信号
     [subject sendNext:@"发送了一个信号1~~~"];
     [subject sendNext:@"发送了一个信号2~~~"];
-    [subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第二个Replay订阅：%@",x);
+    [subject subscribeNext:^(id _Nullable x) {
+        NSLog(@"第二个Replay订阅：%@", x);
     }];
 }
-
 
 #pragma mark 创建一个协议
 - (void)creatProtocol {
-    
 }
+
 #pragma mark 创建一个KVO
 - (void)creatKVO {
     // skip 跳过第一个
-    [[RACObserve(self.vm, dataArray) skip:1] subscribeNext:^(id  _Nullable x) {
-        
+    [[RACObserve(self.vm, dataArray) skip:1] subscribeNext:^(id _Nullable x) {
     }];
 }
+
 #pragma mark 创建一个通知中心
 - (void)creatNotification {
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"ss" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-        
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"ss" object:nil] subscribeNext:^(NSNotification *_Nullable x) {
     }];
 }
+
 /** KVO */
 - (void)Rac_KVO {
     //跳过第一个信号
@@ -174,25 +174,21 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
     [self.view addGestureRecognizer:tap];
     [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer *_Nullable x) {
-        NSLog(@"点击view的frame：%@",NSStringFromCGRect(self.view.frame));
+        NSLog(@"点击view的frame：%@", NSStringFromCGRect(self.view.frame));
         [self.view endEditing:YES];
     }];
-    
-    
 }
 
 /** 点击事件 */
 - (void)Rac_TargetAciotn {
     [[self.nameBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl *_Nullable x) {
-        
     }];
 }
 
 /** 定时器 */
 - (void)Rac_Timer {
-    
-    [[RACSignal interval:1 onScheduler:[RACScheduler scheduler]] subscribeNext:^(NSDate * _Nullable x) {
-        NSLog(@"%@---%@",x,[NSThread currentThread]);
+    [[RACSignal interval:1 onScheduler:[RACScheduler scheduler]] subscribeNext:^(NSDate *_Nullable x) {
+        NSLog(@"%@---%@", x, [NSThread currentThread]);
     }];
 }
 
@@ -200,17 +196,17 @@
 - (void)hh_take {
     RACSubject *subject1 = [RACSubject subject];
     /** 只取前面两个信号 */
-    [[subject1 take:2] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"subject1：%@",x);
+    [[subject1 take:2] subscribeNext:^(id _Nullable x) {
+        NSLog(@"subject1：%@", x);
     }];
     [subject1 sendNext:@"1"];
     [subject1 sendNext:@"2"];
     [subject1 sendNext:@"3"];
     [subject1 sendNext:@"4"];
-    
+
     RACSubject *subject2 = [RACSubject subject];
-    [[subject2 takeLast:3] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"subject2：%@",x);
+    [[subject2 takeLast:3] subscribeNext:^(id _Nullable x) {
+        NSLog(@"subject2：%@", x);
     }];
 
     /** 只取completed前面两个信号
@@ -221,15 +217,15 @@
     [subject2 sendNext:@"3"];
     [subject2 sendNext:@"4"];
     [subject2 sendCompleted];
-    
+
     /** takeUntil:---给takeUntil传的是哪个信号，
         那么当这个信号发送信号或sendCompleted，就不能再接受源信号的内容了。
         当subject2开始发信号 或者subject1完成发送  就停止接收信号
      */
-    [[subject1 takeUntil:subject2] subscribeNext:^(id  _Nullable x) {
+    [[subject1 takeUntil:subject2] subscribeNext:^(id _Nullable x) {
         NSLog(@"%@", x);
     }];
-  
+
     // 发送信号
     [subject2 sendNext:@3];
     [subject1 sendNext:@1];
@@ -254,7 +250,6 @@
     [signal2 subscribeNext:^(id _Nullable x) {
         NSLog(@"signal2:%@", x);
     }];
-
 }
 
 /** 信号过滤 */
@@ -279,24 +274,24 @@
     [self.nameTF.rac_textSignal subscribeNext:^(NSString *_Nullable x) {
         NSLog(@"x1:%@", x);
     }];
-    [[self.nameTF.rac_textSignal flattenMap:^__kindof RACSignal * _Nullable(NSString * _Nullable value) {
-        NSLog(@"xxx--value->%@",value);
+    [[self.nameTF.rac_textSignal flattenMap:^__kindof RACSignal *_Nullable (NSString *_Nullable value) {
+        NSLog(@"xxx--value->%@", value);
         return nil;
-    }] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"xxx--->%@",x);
+    }] subscribeNext:^(id _Nullable x) {
+        NSLog(@"xxx--->%@", x);
     }];
-    
+
     // megr 信号合并
     RACSignal *a = [self.nameBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
     RACSignal *b = self.nameTF.rac_textSignal;
     //信号合并
-    [[a merge:b] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"点击view的frame：%@",NSStringFromCGRect(self.view.frame));
+    [[a merge:b] subscribeNext:^(id _Nullable x) {
+        NSLog(@"点击view的frame：%@", NSStringFromCGRect(self.view.frame));
         [self.view endEditing:YES];
     }];
-    
+
     //
-    
+
     // Map创建一个订阅者的映射 并返回数据
     [[self.nameTF.rac_textSignal map:^id _Nullable (NSString *_Nullable value) {
         NSLog(@"map-value:%@", value);
@@ -344,7 +339,6 @@
         NSLog(@"signal1:%@", x);
     }];
 
-    
     /*
      // repeat 重复发送讯号
      RACSignal *signal3 = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -377,47 +371,43 @@
     [signal4 subscribeNext:^(id _Nullable x) {
         NSLog(@"signal3:%@", x);
     }];
-    
 }
 
 /** retry重试 */
 - (void)hh_retry {
-    
     //1、retry重试 ：只要失败，就会重新执行创建信号中的block,直到成功.
     __block int i = 0;
     [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         if (i == 10) {
-            [subscriber sendNext:[NSString stringWithFormat:@"第%d次，终于发送成功了~~",i]];
-        }else{
+            [subscriber sendNext:[NSString stringWithFormat:@"第%d次，终于发送成功了~~", i]];
+        } else {
             NSLog(@"接收到错误");
             [subscriber sendError:nil];
         }
         i++;
         return nil;
     }] retry] subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+        NSLog(@"%@", x);
     } error:^(NSError *error) {
-
     }];
-    
+
     //2、'replay`重放：当一个信号被多次订阅,反复播放内容
-    RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    RACSignal *signal = [[RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
         [subscriber sendNext:@"第一次"];
         [subscriber sendNext:@"第二次"];
         [subscriber sendCompleted];
         return nil;
     }] retry];
-    
-    [signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第一个订阅者%@",x);
+
+    [signal subscribeNext:^(id _Nullable x) {
+        NSLog(@"第一个订阅者%@", x);
     }];
-    [signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第二个订阅者%@",x);
+    [signal subscribeNext:^(id _Nullable x) {
+        NSLog(@"第二个订阅者%@", x);
     }];
-    [signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第三个订阅者%@",x);
+    [signal subscribeNext:^(id _Nullable x) {
+        NSLog(@"第三个订阅者%@", x);
     }];
-    
 }
 
 /** switchToLatest */
@@ -427,8 +417,8 @@
     RACSubject *subject1 = [RACSubject subject];
     RACSubject *subject2 = [RACSubject subject];
     RACSubject *subject3 = [RACSubject subject];
-    [subject1.switchToLatest subscribeNext:^(id  _Nullable x) {
-        NSLog(@"%@",x);
+    [subject1.switchToLatest subscribeNext:^(id _Nullable x) {
+        NSLog(@"%@", x);
     }];
     [subject1 sendNext:subject2];
     [subject1 sendNext:subject3];
@@ -440,22 +430,18 @@
  flattenMap
  */
 - (void)hh_map {
-    
-    [[self.nameTF.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+    [[self.nameTF.rac_textSignal map:^id _Nullable (NSString *_Nullable value) {
         return @"HHHH";
-    }] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"map:x-->%@",x);
+    }] subscribeNext:^(id _Nullable x) {
+        NSLog(@"map:x-->%@", x);
     }];
-    
+
     //flattenMap作用:把源信号的内容映射成一个新的信号，信号可以是任意类型。
-    [[self.nameTF.rac_textSignal flattenMap:^__kindof RACSignal * _Nullable(NSString * _Nullable value) {
-        
-        return [RACReturnSignal return: @"HHHH"];
-    }] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"%@",x);
+    [[self.nameTF.rac_textSignal flattenMap:^__kindof RACSignal *_Nullable (NSString *_Nullable value) {
+        return [RACReturnSignal return :@"HHHH"];
+    }] subscribeNext:^(id _Nullable x) {
+        NSLog(@"%@", x);
     }];
-    
-    
 }
 
 - (UITextField *)nameTF {
@@ -473,7 +459,7 @@
         _nameTF.leftViewMode = UITextFieldViewModeAlways;
         _nameTF.layer.cornerRadius = 15;
         _nameTF.layer.masksToBounds = YES;
-        _nameTF.layer.borderWidth = 1;_nameTF.layer.borderColor = [UIColor greenColor].CGColor;
+        _nameTF.layer.borderWidth = 1; _nameTF.layer.borderColor = [UIColor greenColor].CGColor;
     }
     return _nameTF;
 }
@@ -484,6 +470,8 @@
         [_nameBtn setFrame:CGRectMake(100, 150, 100, 50)];
         _nameBtn.backgroundColor = [UIColor redColor];
         [_nameBtn setTitle:@"点我" forState:UIControlStateNormal];
-    }return _nameBtn;
+    }
+    return _nameBtn;
 }
+
 @end

@@ -34,6 +34,7 @@
         NSLog(@"parameters==%@", parameters);
         UIViewController *v = [[NSClassFromString(parameters[@"controller"]) alloc] init];
         [self paramToVc:v param:parameters];
+        v.title = parameters[@"title"];
         [[self currentViewController] pushViewController:v animated:YES];
         return YES;
     }];

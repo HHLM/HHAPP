@@ -27,6 +27,7 @@
     }
     return self;
 }
+
 - (void)addFirstView {
     v = [[UIView alloc] init];
     [self addSubview:v];
@@ -35,8 +36,8 @@
         make.center.mas_equalTo(self);
     }];
     v.backgroundColor = [UIColor greenColor];
-    
 }
+
 - (void)layoutSubviews {
     NSLog(@"刷新子视图");
 }
@@ -46,4 +47,5 @@
         make.left.mas_equalTo(200);
     }];
 }
+
 @end

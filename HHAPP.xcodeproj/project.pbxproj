@@ -8,10 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9405E91022954D0E008AC2B5 /* HHLikeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */; };
+		940FED26247E026A0087D2F1 /* HHNSObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 940FED25247E026A0087D2F1 /* HHNSObjectViewController.m */; };
+		9413A9A8247EC1080092326B /* HHPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A9A7247EC1080092326B /* HHPerson.m */; };
+		9413A9AB247EC1160092326B /* HHStuden.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A9AA247EC1160092326B /* HHStuden.m */; };
 		941E3D17235054BD0064AD64 /* HHLikeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E3D16235054BD0064AD64 /* HHLikeTableView.m */; };
 		9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427136423053EB0006DD42D /* HHAdminViewModel.m */; };
 		94595F3622F038210004C8BA /* BadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94595F3522F038200004C8BA /* BadgeButton.m */; };
 		94715818235F17CE00E1E410 /* UIView+HHEXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 94715817235F17CE00E1E410 /* UIView+HHEXT.m */; };
+		94854473247BE518002D221E /* RACSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94854472247BE518002D221E /* RACSignalViewController.m */; };
+		94854476247BEBB2002D221E /* RACSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94854475247BEBB2002D221E /* RACSubjectViewController.m */; };
+		94854479247BEF48002D221E /* RACReplaySubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94854478247BEF48002D221E /* RACReplaySubjectViewController.m */; };
+		9485447C247BFA77002D221E /* HHTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9485447B247BFA77002D221E /* HHTouchView.m */; };
 		948F1A472331875100FF3AAA /* HHSummarizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A462331875100FF3AAA /* HHSummarizeViewController.m */; };
 		948F1A4A233226BD00FF3AAA /* HHRacSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A49233226BD00FF3AAA /* HHRacSubjectViewController.m */; };
 		948F1A4D23322D2400FF3AAA /* HHRacListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F1A4C23322D2400FF3AAA /* HHRacListViewController.m */; };
@@ -33,6 +40,10 @@
 		94ACF6C422794A52002EE971 /* HHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C322794A52002EE971 /* HHVideoViewController.m */; };
 		94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C622794B47002EE971 /* HHNavigationController.m */; };
 		94ACF6CA22794E78002EE971 /* HHLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C922794E78002EE971 /* HHLikeViewController.m */; };
+		94B6F9A5247C1175008F06CB /* RACMulticastConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */; };
+		94B6F9A8247C1447008F06CB /* RACSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A7247C1447008F06CB /* RACSequenceViewController.m */; };
+		94B6F9AB247C1796008F06CB /* RACCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9AA247C1796008F06CB /* RACCommandViewController.m */; };
+		94B6F9AE247C341C008F06CB /* RACSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9AD247C341C008F06CB /* RACSelectorViewController.m */; };
 		94BC5F3A23346F5D00DE0908 /* HHFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC5F3923346F5D00DE0908 /* HHFileManager.m */; };
 		94BC5F3E2334961C00DE0908 /* HHFileManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC5F3D2334961C00DE0908 /* HHFileManagerViewController.m */; };
 		94BC5F422334B27300DE0908 /* HHAppPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC5F412334B27300DE0908 /* HHAppPurchaseViewController.m */; };
@@ -56,6 +67,12 @@
 		749B655AB220B44DC206B9F2 /* Pods-HHAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHAPP.release.xcconfig"; path = "Target Support Files/Pods-HHAPP/Pods-HHAPP.release.xcconfig"; sourceTree = "<group>"; };
 		9405E90E22954D0E008AC2B5 /* HHLikeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeHeaderView.h; sourceTree = "<group>"; };
 		9405E90F22954D0E008AC2B5 /* HHLikeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeHeaderView.m; sourceTree = "<group>"; };
+		940FED24247E026A0087D2F1 /* HHNSObjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNSObjectViewController.h; sourceTree = "<group>"; };
+		940FED25247E026A0087D2F1 /* HHNSObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNSObjectViewController.m; sourceTree = "<group>"; };
+		9413A9A6247EC1080092326B /* HHPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHPerson.h; sourceTree = "<group>"; };
+		9413A9A7247EC1080092326B /* HHPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPerson.m; sourceTree = "<group>"; };
+		9413A9A9247EC1160092326B /* HHStuden.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHStuden.h; sourceTree = "<group>"; };
+		9413A9AA247EC1160092326B /* HHStuden.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHStuden.m; sourceTree = "<group>"; };
 		941E3D15235054BD0064AD64 /* HHLikeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeTableView.h; sourceTree = "<group>"; };
 		941E3D16235054BD0064AD64 /* HHLikeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeTableView.m; sourceTree = "<group>"; };
 		9427136323053EB0006DD42D /* HHAdminViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAdminViewModel.h; sourceTree = "<group>"; };
@@ -64,6 +81,14 @@
 		94595F3522F038200004C8BA /* BadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeButton.m; sourceTree = "<group>"; };
 		94715816235F17CE00E1E410 /* UIView+HHEXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HHEXT.h"; sourceTree = "<group>"; };
 		94715817235F17CE00E1E410 /* UIView+HHEXT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHEXT.m"; sourceTree = "<group>"; };
+		94854471247BE518002D221E /* RACSignalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSignalViewController.h; sourceTree = "<group>"; };
+		94854472247BE518002D221E /* RACSignalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSignalViewController.m; sourceTree = "<group>"; };
+		94854474247BEBB2002D221E /* RACSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSubjectViewController.h; sourceTree = "<group>"; };
+		94854475247BEBB2002D221E /* RACSubjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSubjectViewController.m; sourceTree = "<group>"; };
+		94854477247BEF48002D221E /* RACReplaySubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACReplaySubjectViewController.h; sourceTree = "<group>"; };
+		94854478247BEF48002D221E /* RACReplaySubjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACReplaySubjectViewController.m; sourceTree = "<group>"; };
+		9485447A247BFA77002D221E /* HHTouchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTouchView.h; sourceTree = "<group>"; };
+		9485447B247BFA77002D221E /* HHTouchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTouchView.m; sourceTree = "<group>"; };
 		948F1A452331875100FF3AAA /* HHSummarizeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSummarizeViewController.h; sourceTree = "<group>"; };
 		948F1A462331875100FF3AAA /* HHSummarizeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSummarizeViewController.m; sourceTree = "<group>"; };
 		948F1A48233226BD00FF3AAA /* HHRacSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHRacSubjectViewController.h; sourceTree = "<group>"; };
@@ -105,6 +130,14 @@
 		94ACF6C622794B47002EE971 /* HHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNavigationController.m; sourceTree = "<group>"; };
 		94ACF6C822794E78002EE971 /* HHLikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLikeViewController.h; sourceTree = "<group>"; };
 		94ACF6C922794E78002EE971 /* HHLikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLikeViewController.m; sourceTree = "<group>"; };
+		94B6F9A3247C1175008F06CB /* RACMulticastConnectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACMulticastConnectionViewController.h; sourceTree = "<group>"; };
+		94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMulticastConnectionViewController.m; sourceTree = "<group>"; };
+		94B6F9A6247C1447008F06CB /* RACSequenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSequenceViewController.h; sourceTree = "<group>"; };
+		94B6F9A7247C1447008F06CB /* RACSequenceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSequenceViewController.m; sourceTree = "<group>"; };
+		94B6F9A9247C1796008F06CB /* RACCommandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACCommandViewController.h; sourceTree = "<group>"; };
+		94B6F9AA247C1796008F06CB /* RACCommandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACCommandViewController.m; sourceTree = "<group>"; };
+		94B6F9AC247C341C008F06CB /* RACSelectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSelectorViewController.h; sourceTree = "<group>"; };
+		94B6F9AD247C341C008F06CB /* RACSelectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSelectorViewController.m; sourceTree = "<group>"; };
 		94BC5F3823346F5D00DE0908 /* HHFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHFileManager.h; sourceTree = "<group>"; };
 		94BC5F3923346F5D00DE0908 /* HHFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHFileManager.m; sourceTree = "<group>"; };
 		94BC5F3C2334961C00DE0908 /* HHFileManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHFileManagerViewController.h; sourceTree = "<group>"; };
@@ -154,6 +187,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940FED27247E07F20087D2F1 /* RAC基本使用 */ = {
+			isa = PBXGroup;
+			children = (
+				94854471247BE518002D221E /* RACSignalViewController.h */,
+				94854472247BE518002D221E /* RACSignalViewController.m */,
+				94854474247BEBB2002D221E /* RACSubjectViewController.h */,
+				94854475247BEBB2002D221E /* RACSubjectViewController.m */,
+				94854477247BEF48002D221E /* RACReplaySubjectViewController.h */,
+				94854478247BEF48002D221E /* RACReplaySubjectViewController.m */,
+				94B6F9A6247C1447008F06CB /* RACSequenceViewController.h */,
+				94B6F9A7247C1447008F06CB /* RACSequenceViewController.m */,
+				94B6F9A3247C1175008F06CB /* RACMulticastConnectionViewController.h */,
+				94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */,
+				94B6F9A9247C1796008F06CB /* RACCommandViewController.h */,
+				94B6F9AA247C1796008F06CB /* RACCommandViewController.m */,
+				94B6F9AC247C341C008F06CB /* RACSelectorViewController.h */,
+				94B6F9AD247C341C008F06CB /* RACSelectorViewController.m */,
+			);
+			path = "RAC基本使用";
+			sourceTree = "<group>";
+		};
 		94ACF66922793F92002EE971 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +332,10 @@
 		94ACF6A822794998002EE971 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9413A9A6247EC1080092326B /* HHPerson.h */,
+				9413A9A7247EC1080092326B /* HHPerson.m */,
+				9413A9A9247EC1160092326B /* HHStuden.h */,
+				9413A9AA247EC1160092326B /* HHStuden.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +363,8 @@
 			children = (
 				94ACF6C822794E78002EE971 /* HHLikeViewController.h */,
 				94ACF6C922794E78002EE971 /* HHLikeViewController.m */,
+				940FED24247E026A0087D2F1 /* HHNSObjectViewController.h */,
+				940FED25247E026A0087D2F1 /* HHNSObjectViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,6 +379,8 @@
 		94ACF6AD227949A7002EE971 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9485447A247BFA77002D221E /* HHTouchView.h */,
+				9485447B247BFA77002D221E /* HHTouchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +397,7 @@
 			children = (
 				94ACF6BF22794A43002EE971 /* HHNewsViewController.h */,
 				94ACF6C022794A43002EE971 /* HHNewsViewController.m */,
+				940FED27247E07F20087D2F1 /* RAC基本使用 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -624,6 +687,7 @@
 				948F1A472331875100FF3AAA /* HHSummarizeViewController.m in Sources */,
 				94F4825322E5BA70008A7C05 /* UIView+HHExt.m in Sources */,
 				948F1A4D23322D2400FF3AAA /* HHRacListViewController.m in Sources */,
+				94B6F9A5247C1175008F06CB /* RACMulticastConnectionViewController.m in Sources */,
 				94E13CAC2338C88400E34BDF /* UILabel+HHEXT.m in Sources */,
 				94F4825022E5A513008A7C05 /* TRBadgeButton.m in Sources */,
 				94ACF68522793F93002EE971 /* main.m in Sources */,
@@ -634,25 +698,35 @@
 				94ACF69B227946AE002EE971 /* BaseModel.m in Sources */,
 				94BC5F452334B93800DE0908 /* HHAppPurchaseTool.m in Sources */,
 				94E13C94233860AE00E34BDF /* HHRacSignalViewController.m in Sources */,
+				94854479247BEF48002D221E /* RACReplaySubjectViewController.m in Sources */,
+				940FED26247E026A0087D2F1 /* HHNSObjectViewController.m in Sources */,
 				948F1A4A233226BD00FF3AAA /* HHRacSubjectViewController.m in Sources */,
+				94854476247BEBB2002D221E /* RACSubjectViewController.m in Sources */,
+				9413A9A8247EC1080092326B /* HHPerson.m in Sources */,
+				9413A9AB247EC1160092326B /* HHStuden.m in Sources */,
 				948F1A562332384F00FF3AAA /* HHRacModel.m in Sources */,
 				948F1A5023322DF900FF3AAA /* BaseTableViewCell.m in Sources */,
 				94ACF67722793F92002EE971 /* AppDelegate.m in Sources */,
+				94B6F9AB247C1796008F06CB /* RACCommandViewController.m in Sources */,
 				94E13CA92338C84000E34BDF /* UIColor+HHEXT.m in Sources */,
 				94ACF6C722794B47002EE971 /* HHNavigationController.m in Sources */,
 				94E13CA12338C2CE00E34BDF /* AppDelegate+HHExt.m in Sources */,
+				94B6F9A8247C1447008F06CB /* RACSequenceViewController.m in Sources */,
 				94E13CA52338C6F800E34BDF /* HHColorTool.m in Sources */,
 				94ACF6C122794A43002EE971 /* HHNewsViewController.m in Sources */,
 				94E13CBA2338D19A00E34BDF /* HHConstFile.m in Sources */,
 				94E13CBD2338D2D200E34BDF /* UIImage+HHEXT.m in Sources */,
 				94ACF6C422794A52002EE971 /* HHVideoViewController.m in Sources */,
+				94B6F9AE247C341C008F06CB /* RACSelectorViewController.m in Sources */,
 				94BC5F3E2334961C00DE0908 /* HHFileManagerViewController.m in Sources */,
 				9427136523053EB0006DD42D /* HHAdminViewModel.m in Sources */,
 				948F1A53233232A000FF3AAA /* HHRacTableView.m in Sources */,
 				94ACF6CA22794E78002EE971 /* HHLikeViewController.m in Sources */,
 				94BC5F3A23346F5D00DE0908 /* HHFileManager.m in Sources */,
+				9485447C247BFA77002D221E /* HHTouchView.m in Sources */,
 				94ACF6A1227946D3002EE971 /* BaseTableView.m in Sources */,
 				94ACF6A522794747002EE971 /* HHTabBarController.m in Sources */,
+				94854473247BE518002D221E /* RACSignalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +870,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 282RD4DA3C;
+				DEVELOPMENT_TEAM = 2V5VW5864D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HHAPP/PrefixHeader.pch";
 				INFOPLIST_FILE = HHAPP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -804,7 +878,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-----.HHAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hishake.HHAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -816,7 +890,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 282RD4DA3C;
+				DEVELOPMENT_TEAM = 2V5VW5864D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HHAPP/PrefixHeader.pch";
 				INFOPLIST_FILE = HHAPP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -824,7 +898,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-----.HHAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hishake.HHAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

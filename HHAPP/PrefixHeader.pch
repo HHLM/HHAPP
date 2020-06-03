@@ -8,10 +8,11 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
-
+#import <ReactiveObjC.h>
 #import "HHHeaderFiles.h"
 #import "HHMacros.h"
 #import "HHAPPAutoSize.h"
+#import "HHExtensionHeader.h"
 //scheme
 #define kScheme @"HHLZXYRoutes"
 #define HHLM @"sssss"

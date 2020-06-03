@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "59DC85E36D62F316E236961D6D04E119"
+               BlueprintIdentifier = "FBECB53EF465A7695AF820CAF1913522"
                BuildableName = "libHHLKit.a"
                BlueprintName = "HHLKit"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -10,6 +10,7 @@
 
 @interface HHNewsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, copy) NSArray *titleArray;
 @property (nonatomic, strong) UITableView *table;
 
 @end
@@ -18,13 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"新闻";
+    self.title = @"RAC使用";
+    self.titleArray = @[@"RACSignal",
+                        @"RACSubject",
+                        @"RACReplaySubject",
+                        @"RACSequence",
+                        @"RACMulticastConnection",
+                        @"RACCommand",
+                        @"RACSelector"];
     [self.view addSubview:self.table];
 }
 
 #pragma mark UITableVieDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.titleArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
@@ -34,7 +42,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat: @"主标题 - %@",@(indexPath.row)];
+    cell.textLabel.text = [NSString stringWithFormat: @" %@",self.titleArray[indexPath.row]];
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"video"];
     return cell;
@@ -43,7 +51,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *url = [NSString stringWithFormat:@"HHLZXYRoutes://push/HHFileManagerViewController?name=%@",@"fromNextVC"];
+    NSString *url = [NSString stringWithFormat:@"HHLZXYRoutes://push/%@ViewController?title=%@",self.titleArray[indexPath.row],self.titleArray[indexPath.row]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
                                        options:@{UIApplicationOpenURLOptionsSourceApplicationKey : @YES}
                              completionHandler:nil];

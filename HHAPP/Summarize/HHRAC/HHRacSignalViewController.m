@@ -265,8 +265,8 @@ static NSString *const NotificationName = @"HH_RAC_NSNOTIFICATION_NAME";
         return nil;
     }];
     RACSignal *signalC = [RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@"发送第三个信号"];
-        [subscriber sendNext:@"发送第三个信号1"];
+//        [subscriber sendNext:@"发送第三个信号"];
+//        [subscriber sendNext:@"发送第三个信号1"];
         [subscriber sendCompleted];
         return nil;
     }];
@@ -299,12 +299,12 @@ static NSString *const NotificationName = @"HH_RAC_NSNOTIFICATION_NAME";
 #pragma mark combineLastest 将多个信号合并，并且拿到各个信号的最新的值，必须每个合并的siganl至少都有一次sendNext,才会触发
 - (void)hh_rac_combineLatest {
     RACSignal *signalB = [RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@"发送B信号"];
+        [subscriber sendNext:@"AAAAAAAA"];
         [subscriber sendCompleted];
         return nil;
     }];
     RACSignal *signalA = [RACSignal createSignal:^RACDisposable *_Nullable (id<RACSubscriber>  _Nonnull subscriber) {
-        [subscriber sendNext:@"发送A信号"];
+        [subscriber sendNext:@"BBBBBBBBBB"];
         [subscriber sendCompleted];
         return nil;
     }];
@@ -312,6 +312,8 @@ static NSString *const NotificationName = @"HH_RAC_NSNOTIFICATION_NAME";
     RACSignal *signal = [signalA combineLatestWith:signalB];
     [signal subscribeNext:^(id _Nullable x) {
         NSLog(@"rac_combineLastest:%@", x);
+        RACTwoTuple *tuple = x;
+        NSLog(@"%@--%@",tuple.first,tuple.second);
     }];
 }
 
@@ -520,11 +522,13 @@ static NSString *const NotificationName = @"HH_RAC_NSNOTIFICATION_NAME";
 
 /// 应用场景：常用于即时搜索优化，防止频繁发出请求。
 - (void)hh_rac_throttle {
-    //0.5内的信号变化不考虑
+    //2内的信号变化不考虑
     RACSubject *subject = [RACSubject subject];
-    [[subject throttle:0.5] subscribeNext:^(id _Nullable x) {
+    [[subject throttle:2] subscribeNext:^(id _Nullable x) {
         NSLog(@"throtte:%@", x);
     }];
+    [subject sendNext:@"回到2015年1月3日晚上8点"];
+    [subject sendCompleted];
 }
 
 #pragma mark tableView点击事件

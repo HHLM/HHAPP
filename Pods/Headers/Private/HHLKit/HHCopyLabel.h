@@ -1,1 +1,1 @@
-../../../../../HHLKit/HHLKit/Classes/HHCopyLabel.h
+../../../HHLKit/HHLKit/Classes/HHCustomView/HHCopyLabel.h
