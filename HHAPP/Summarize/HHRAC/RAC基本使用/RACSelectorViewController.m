@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) HHTouchView *touchView;
 @property (nonatomic, strong) UITextField *tf;
+@property (nonatomic, strong) UITextField *pswTF;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, assign) NSInteger count;
 @end
@@ -29,7 +30,7 @@
         NSLog(@"调用了touchViewClicked: 方法");
         NSLog(@"%@", x);
     }];
-    
+
     //
     [self rac_liftSelector];
 }
@@ -37,7 +38,6 @@
 - (void)refershMainUIWithData1:(id)data1 data2:(id)data2 {
     NSLog(@"%@---%@", data1, data2);
 }
-
 
 /// 应用场景：需要同时请求多个方法 ，这些方法 完成后然后再去调用 其他方法
 - (void)rac_liftSelector {
@@ -54,11 +54,10 @@
 }
 
 - (void)rac_signalSelector {
-    
     [self.tf.rac_textSignal subscribeNext:^(NSString *_Nullable x) {
         NSLog(@"%@", x);
     }];
-    
+
     //监听手响应了某个方法
     [[self rac_signalForSelector:@selector(touchesBegan:withEvent:)] subscribeNext:^(RACTuple *_Nullable x) {
         NSLog(@"点击了view");
@@ -71,22 +70,22 @@
     [[self rac_valuesForKeyPath:@keypath(self, count) observer:self] subscribeNext:^(id _Nullable x) {
         NSLog(@"KVO1：%@", x);
     }];
-    
+
     [[self rac_valuesAndChangesForKeyPath:@"count" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld observer:self] subscribeNext:^(RACTwoTuple<id, NSDictionary *> *_Nullable x) {
         NSLog(@"KVO2：%@", x);
     }];
-    
+
     [RACObserve(self, count) subscribeNext:^(id _Nullable x) {
         NSLog(@"KVO3：%@", x);
     }];
 
     //数据绑定
     RAC(self.titleLab, text) = self.tf.rac_textSignal;
-    
+
     //遵循协议
-    [[self.tf rac_signalForSelector:@selector(textFieldDidBeginEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
-        NSLog(@"协议开始编辑：%@",x);
-    }];;
+    [[self.tf rac_signalForSelector:@selector(textFieldDidBeginEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(RACTuple *_Nullable x) {
+        NSLog(@"协议开始编辑：%@", x);
+    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -98,10 +97,17 @@
 
 - (void)mainUI {
     self.count = 0;
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(10, 100, self.view.width-20, 40)];
+    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(10, 100, self.view.width - 20, 40)];
     tf.placeholder = @"请在此处输入文字，在上面观察文字变化~";
     [self.view addSubview:tf];
-    tf.backgroundColor = [UIColor redColor];
+    tf.borderStyle = UITextBorderStyleRoundedRect;
+
+    UITextField *pswTF = [[UITextField alloc] initWithFrame:CGRectMake(10, 160
+                                                                       , self.view.width - 20, 40)];
+    pswTF.placeholder = @"请在此处输入密码~";
+    [self.view addSubview:pswTF];
+    pswTF.borderStyle = UITextBorderStyleRoundedRect;
+    self.pswTF = tf;
 
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.width - 20, 80)];
     lab.numberOfLines = 0;

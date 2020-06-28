@@ -45,6 +45,7 @@
 		94ACF6CA22794E78002EE971 /* HHLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACF6C922794E78002EE971 /* HHLikeViewController.m */; };
 		94B227592487993C00BA5ADC /* RACConcatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B227582487993C00BA5ADC /* RACConcatViewController.m */; };
 		94B2275C2487996A00BA5ADC /* RACThenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B2275B2487996A00BA5ADC /* RACThenViewController.m */; };
+		94B5345A249A238F0080AC3D /* HHLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B53459249A238F0080AC3D /* HHLoginViewModel.m */; };
 		94B6F9A5247C1175008F06CB /* RACMulticastConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */; };
 		94B6F9A8247C1447008F06CB /* RACSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9A7247C1447008F06CB /* RACSequenceViewController.m */; };
 		94B6F9AB247C1796008F06CB /* RACCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B6F9AA247C1796008F06CB /* RACCommandViewController.m */; };
@@ -145,6 +146,8 @@
 		94B227582487993C00BA5ADC /* RACConcatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACConcatViewController.m; sourceTree = "<group>"; };
 		94B2275A2487996A00BA5ADC /* RACThenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACThenViewController.h; sourceTree = "<group>"; };
 		94B2275B2487996A00BA5ADC /* RACThenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACThenViewController.m; sourceTree = "<group>"; };
+		94B53458249A238F0080AC3D /* HHLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLoginViewModel.h; sourceTree = "<group>"; };
+		94B53459249A238F0080AC3D /* HHLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLoginViewModel.m; sourceTree = "<group>"; };
 		94B6F9A3247C1175008F06CB /* RACMulticastConnectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACMulticastConnectionViewController.h; sourceTree = "<group>"; };
 		94B6F9A4247C1175008F06CB /* RACMulticastConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMulticastConnectionViewController.m; sourceTree = "<group>"; };
 		94B6F9A6247C1447008F06CB /* RACSequenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSequenceViewController.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				94B6F9AA247C1796008F06CB /* RACCommandViewController.m */,
 				94B6F9AC247C341C008F06CB /* RACSelectorViewController.h */,
 				94B6F9AD247C341C008F06CB /* RACSelectorViewController.m */,
+				94B53458249A238F0080AC3D /* HHLoginViewModel.h */,
+				94B53459249A238F0080AC3D /* HHLoginViewModel.m */,
 			);
 			path = "RAC基本使用";
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 		94ACF6B6227949F7002EE971 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				948F1A462331875100FF3AAA /* HHSummarizeViewController.m */,
 				948F1A452331875100FF3AAA /* HHSummarizeViewController.h */,
 			);
 			path = Controller;
@@ -539,7 +545,6 @@
 			children = (
 				940FED27247E07F20087D2F1 /* RAC基本使用 */,
 				94B22756248792E500BA5ADC /* RAC高级用法 */,
-				948F1A462331875100FF3AAA /* HHSummarizeViewController.m */,
 				94ACF6B922794A16002EE971 /* HHRacBaseViewController.h */,
 				94ACF6BA22794A16002EE971 /* HHRacBaseViewController.m */,
 				948F1A4B23322D2400FF3AAA /* HHRacListViewController.h */,
@@ -732,6 +737,7 @@
 				94595F3622F038210004C8BA /* BadgeButton.m in Sources */,
 				94ACF69B227946AE002EE971 /* BaseModel.m in Sources */,
 				94BC5F452334B93800DE0908 /* HHAppPurchaseTool.m in Sources */,
+				94B5345A249A238F0080AC3D /* HHLoginViewModel.m in Sources */,
 				94E13C94233860AE00E34BDF /* HHRacSignalViewController.m in Sources */,
 				94854479247BEF48002D221E /* RACReplaySubjectViewController.m in Sources */,
 				940FED26247E026A0087D2F1 /* HHNSObjectViewController.m in Sources */,
@@ -907,6 +913,7 @@
 			baseConfigurationReference = 152D113AD384537D60A0D533 /* Pods-HHAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V5VW5864D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HHAPP/PrefixHeader.pch";
@@ -918,6 +925,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hishake.HHAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -927,6 +935,7 @@
 			baseConfigurationReference = 749B655AB220B44DC206B9F2 /* Pods-HHAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V5VW5864D;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HHAPP/PrefixHeader.pch";
@@ -938,6 +947,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hishake.HHAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

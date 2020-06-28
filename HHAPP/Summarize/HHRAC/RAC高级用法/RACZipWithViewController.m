@@ -35,6 +35,7 @@
     
     //只有其中一个信号不发送信息  就不能定接收到信息
     [singalB sendNext:@"信号B"];
+    [singalC sendNext:@"信号C"]; //只有singalB 也发送两次 “zipWith BC” 才会打印两次
     
 //    [singalA sendNext:@"信号A"];
     [singalC sendNext:@"信号C"];
